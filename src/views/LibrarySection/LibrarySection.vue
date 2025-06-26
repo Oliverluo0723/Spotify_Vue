@@ -4,10 +4,10 @@ import { PlusOutlined, ArrowsAltOutlined } from '@ant-design/icons-vue'
 import Badge from '@/components/Badge.vue'
 
 const BadgeItems = ref([
-  { id: 1, itemName: '播放清單', navigationLink: '/' },
-  { id: 2, itemName: '最愛藝人', navigationLink: '/' },
-  { id: 3, itemName: '專輯', navigationLink: '/' },
-  { id: 4, itemName: 'Podcast和節目', navigationLink: '/' },
+  { id: 101, itemName: '播放清單', navigationLink: '/' },
+  { id: 102, itemName: '最愛藝人', navigationLink: '/' },
+  { id: 103, itemName: '專輯', navigationLink: '/' },
+  { id: 104, itemName: 'Podcast和節目', navigationLink: '/' },
 ])
 </script>
 <template>
@@ -21,7 +21,7 @@ const BadgeItems = ref([
         </a-flex>
       </a-flex>
     </div>
-    <div class="library-sub">
+    <div class="library-sub mt-2">
       <ul>
         <a-flex gap="small">
           <li v-for="item in BadgeItems" :key="item.id">
