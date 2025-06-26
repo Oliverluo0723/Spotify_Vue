@@ -1,13 +1,21 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { ConfigProvider, Button, theme } from 'ant-design-vue'
+// UI
+import { ConfigProvider, theme } from 'ant-design-vue'
+// 組件
+import Header from '@/layouts/Header.vue'
 
-const defaultData = {
-  borderRadius: 6,
+interface ThemeConfig {
+  borderRadius: number
+  colorPrimary: string
+}
+
+const defaultData: ThemeConfig = {
+  borderRadius: 18,
   colorPrimary: '#3c3c3c',
 }
 
-const data = ref(defaultData)
+const data = ref<ThemeConfig>(defaultData)
 
 const { token } = theme.useToken()
 </script>
@@ -21,8 +29,18 @@ const { token } = theme.useToken()
       },
     }"
   >
-    <RouterView />
+    <div class="app">
+      <Header />
+      <RouterView />
+    </div>
   </ConfigProvider>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.app {
+  position: relative;
+  width: 100vw;
+  min-height: 100svh;
+  padding: 0 8px;
+}
+</style>
