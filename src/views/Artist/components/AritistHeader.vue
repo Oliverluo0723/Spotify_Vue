@@ -1,12 +1,15 @@
 <script setup lang="ts">
 import airtistImg from '@/assets/culenasm.jpg'
+import checkSvg from '@/assets/check.svg'
 </script>
 <template>
   <header class="p-4 flex flex-col justify-center gap-[0.8rem]">
     <img :src="airtistImg" alt="" class="aritistImg" />
-
-    <div>已認證藝人</div>
-    <h2 class="text-4xl lg:text-6xl">羊文學</h2>
+    <div class="flex items-center gap-2">
+      <img :src="checkSvg" alt="已認證藝人" class="checkSvg" />
+      <div>已認證藝人</div>
+    </div>
+    <h2 class="text-4xl lg:text-6xl">クレナズム</h2>
     <div class="text-[0.7rem]">每月1,449,231名觀眾</div>
   </header>
 </template>
@@ -14,9 +17,14 @@ import airtistImg from '@/assets/culenasm.jpg'
 header {
   position: relative;
   width: 100%;
-  height: clamp(150px, 40vw, 200px);
+  height: clamp(220px, 40vw, 260px);
   color: #ededed;
   z-index: 100;
+}
+
+.checkSvg {
+  width: 20px;
+  height: 20px;
 }
 
 .aritistImg {
