@@ -1,6 +1,8 @@
 <script setup lang="ts"></script>
 <template>
-  <footer>Hello</footer>
+  <footer>
+    <div></div>
+  </footer>
 </template>
 <style lang="scss" scoped>
 footer {

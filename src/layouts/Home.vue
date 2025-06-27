@@ -1,19 +1,22 @@
 <script setup lang="ts">
+import { RouterView } from 'vue-router'
 import LibrarySection from '@/views/LibrarySection/LibrarySection.vue'
 </script>
 
 <template>
   <main>
     <a-row wrap="true" :gutter="[16, 16]">
-      <a-col :xs="{ span: 6 }" :lg="{ span: 8 }" class="Home-col">
+      <a-col :xs="{ span: 6 }" :lg="{ span: 6 }" class="Home-col">
         <div class="col-content">
           <LibrarySection />
         </div>
       </a-col>
-      <a-col :xs="{ span: 9 }" :lg="{ span: 8 }" class="Home-col">
-        <div class="col-content">Hello</div>
+      <a-col :xs="{ span: 12 }" :lg="{ span: 12 }" class="Home-col">
+        <div class="col-content">
+          <RouterView />
+        </div>
       </a-col>
-      <a-col :xs="{ span: 9 }" :lg="{ span: 8 }" class="Home-col">
+      <a-col :xs="{ span: 6 }" :lg="{ span: 6 }" class="Home-col">
         <div class="col-content">Hello</div>
       </a-col>
     </a-row>

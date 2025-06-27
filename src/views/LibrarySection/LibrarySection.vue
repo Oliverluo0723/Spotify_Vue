@@ -22,14 +22,14 @@ const BadgeItems = ref([
   <section>
     <div class="library-top">
       <a-flex justify="space-between" align="center">
-        <h4>你的音樂庫</h4>
+        <h4 class="hidden lg:block">你的音樂庫</h4>
         <a-flex gap="small">
           <a-button type="primary" size="small" :icon="h(PlusOutlined)">建立</a-button>
           <a-button type="primary" circle size="small" :icon="h(ArrowsAltOutlined)"></a-button>
         </a-flex>
       </a-flex>
     </div>
-    <div class="library-sub mt-2">
+    <div class="library-sub hidden lg:block mt-2">
       <ul>
         <a-flex gap="small">
           <li v-for="item in BadgeItems" :key="item.id">
@@ -38,11 +38,11 @@ const BadgeItems = ref([
         </a-flex>
       </ul>
     </div>
-    <div class="library-search mt-2">
+    <div class="library-search mt-2 hidden lg:block">
       <a-flex justify="space-between" align="center">
         <a-button type="link" size="small" :icon="h(SearchOutlined)"></a-button>
         <div>
-          <a-button type="link" :icon="h(UnorderedListOutlined)">最近播放</a-button>
+          <a-button type="link" :icon="h(UnorderedListOutlined)"> 最近播放 </a-button>
         </div>
       </a-flex>
     </div>
