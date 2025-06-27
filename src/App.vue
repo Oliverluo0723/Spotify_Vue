@@ -4,6 +4,7 @@ import { ref } from 'vue'
 import { ConfigProvider, theme } from 'ant-design-vue'
 // 組件
 import Header from '@/layouts/Header.vue'
+import Footer from './layouts/Footer.vue'
 
 interface ThemeConfig {
   borderRadius: number
@@ -32,13 +33,14 @@ const { token } = theme.useToken()
     <div class="app">
       <Header />
       <RouterView />
+      <Footer />
     </div>
   </ConfigProvider>
 </template>
 
 <style scoped lang="scss">
 .app {
-  // position: relative;
+  position: relative;
   width: 100vw;
   min-height: 100svh;
   padding: 0 8px;
