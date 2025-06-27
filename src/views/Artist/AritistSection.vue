@@ -6,12 +6,15 @@ import AritistSub from './components/AritistSub.vue'
   <main>
     <AritistHeader />
     <AritistSub />
+    <div>熱門</div>
   </main>
 </template>
 <style lang="scss" scoped>
 main {
   width: 100%;
-  height: auto;
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.8rem, 10vw, 1rem);
 }
 </style>

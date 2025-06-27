@@ -5,7 +5,7 @@ import LibrarySection from '@/views/LibrarySection/LibrarySection.vue'
 
 <template>
   <main>
-    <a-row wrap="true" :gutter="[16, 16]">
+    <a-row wrap :gutter="[16, 16]">
       <a-col :xs="{ span: 6 }" :lg="{ span: 6 }" class="Home-col">
         <div class="col-content">
           <LibrarySection />
