@@ -38,7 +38,7 @@ const { token } = theme.useToken()
 
 <style scoped lang="scss">
 .app {
-  position: relative;
+  // position: relative;
   width: 100vw;
   min-height: 100svh;
   padding: 0 8px;

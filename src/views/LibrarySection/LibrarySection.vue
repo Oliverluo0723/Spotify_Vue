@@ -1,13 +1,19 @@
 <script setup lang="ts">
 import { h, ref } from 'vue'
-import { PlusOutlined, ArrowsAltOutlined } from '@ant-design/icons-vue'
+// 組件
 import Badge from '@/components/Badge.vue'
-
+// icon
+import {
+  PlusOutlined,
+  ArrowsAltOutlined,
+  SearchOutlined,
+  UnorderedListOutlined,
+} from '@ant-design/icons-vue'
 const BadgeItems = ref([
-  { id: 101, itemName: '播放清單', navigationLink: '/' },
-  { id: 102, itemName: '最愛藝人', navigationLink: '/' },
-  { id: 103, itemName: '專輯', navigationLink: '/' },
-  { id: 104, itemName: 'Podcast和節目', navigationLink: '/' },
+  { id: 101, itemName: '播放清單' },
+  { id: 102, itemName: '最愛藝人' },
+  { id: 103, itemName: '專輯' },
+  { id: 104, itemName: 'Podcast和節目' },
 ])
 </script>
 <template>
@@ -30,6 +36,14 @@ const BadgeItems = ref([
         </a-flex>
       </ul>
     </div>
+    <div class="library-search mt-2">
+      <a-flex justify="space-between" align="center">
+        <a-button type="link" size="small" :icon="h(SearchOutlined)"></a-button>
+        <div>
+          <a-button type="link" :icon="h(UnorderedListOutlined)">最近播放</a-button>
+        </div>
+      </a-flex>
+    </div>
   </section>
 </template>
 <style lang="scss" scoped>
@@ -40,6 +54,9 @@ section {
     width: 100%;
   }
   .library-sub {
+    width: 100%;
+  }
+  .library-search {
     width: 100%;
   }
 }

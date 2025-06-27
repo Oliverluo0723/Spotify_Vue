@@ -1,12 +1,16 @@
+/* 定義層級順序 */
+@layer theme, base, antd, components, utilities;
+
+/* 載入整合版 Tailwind（包含 base/components/utilities） */
+/* 注意這個指令會把三層內容全部一次 import 進來 */
 @import 'tailwindcss';
 
-/* *,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-} */
+/* 如有必要，修正 Tailwind 對 AntD 的小問題，例如 SVG、圖片、預設邊距等 */
+@layer base {
+  svg {
+    vertical-align: initial;
+  }
+}
 
 body {
   overflow-x: hidden;
@@ -14,11 +18,3 @@ body {
   color: #3c3c3c;
   background-color: #f2f2f2;
 }
-
-/* li {
-  list-style: none;
-}
-
-a {
-  text-decoration: none;
-} */
