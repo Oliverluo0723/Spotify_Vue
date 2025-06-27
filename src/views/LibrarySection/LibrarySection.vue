@@ -2,6 +2,7 @@
 import { h, ref } from 'vue'
 // 組件
 import Badge from '@/components/Badge.vue'
+import LibraryList from './components/libraryList.vue'
 // icon
 import {
   PlusOutlined,
@@ -9,6 +10,7 @@ import {
   SearchOutlined,
   UnorderedListOutlined,
 } from '@ant-design/icons-vue'
+
 const BadgeItems = ref([
   { id: 101, itemName: '播放清單' },
   { id: 102, itemName: '最愛藝人' },
@@ -44,6 +46,9 @@ const BadgeItems = ref([
         </div>
       </a-flex>
     </div>
+    <div class="library-list mt-2">
+      <LibraryList />
+    </div>
   </section>
 </template>
 <style lang="scss" scoped>
@@ -58,6 +63,10 @@ section {
   }
   .library-search {
     width: 100%;
+  }
+  .library-list {
+    width: 100%;
+    height: auto;
   }
 }
 </style>
