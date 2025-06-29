@@ -1,13 +1,27 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed, watch } from 'vue'
+import { useRoute } from 'vue-router'
 // 組件
 import AritistHeader from './components/AritistHeader.vue'
 import AritistSub from './components/AritistSub.vue'
 import AritistPopularCard from './components/AritistPopularCard.vue'
 // 假資料
 import { PopularList } from '@/data/data'
+import { mockArtists } from '@/data/aritist'
+
+const route = useRoute()
 
 const FakePopularList = ref(PopularList)
+const mockData = ref(mockArtists)
+
+// 找藝人
+const currentArtist = computed(() => {
+  const id = route.params.id as string
+  return mockData.value.find((artist) => artist.id === id)
+})
+console.log('當前藝人:', currentArtist.value?.name)
+
+// 找藝人
 
 // 檢視更多
 const ShowMore = ref(false)
@@ -24,7 +38,7 @@ const visibleList = computed(() => {
 <template>
   <PerfectScrollbar>
     <main>
-      <AritistHeader />
+      <AritistHeader v-if="currentArtist" :key="currentArtist.id" :artist="currentArtist" />
       <AritistSub />
       <section class="mt-4">
         <a-flex vertical gap="large">

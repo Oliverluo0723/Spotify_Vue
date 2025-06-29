@@ -1,16 +1,26 @@
 <script setup lang="ts">
+import type { ArtistProps } from '@/data/aritist'
+const props = defineProps<{
+  artist: ArtistProps
+}>()
 import airtistImg from '@/assets/culenasm.jpg'
+import { formatNumberWithDot } from '@/utils/formatNumberWithDot'
 import checkSvg from '@/assets/check.svg'
+
+const aritist = props.artist
+console.table(aritist)
 </script>
 <template>
   <header class="p-4 flex flex-col justify-center gap-[0.8rem]">
-    <img :src="airtistImg" alt="" class="aritistImg" />
+    <img :src="aritist.images[0].url" alt="" class="aritistImg" />
     <div class="flex items-center gap-2">
-      <img :src="checkSvg" alt="已認證藝人" class="checkSvg" />
-      <div>已認證藝人</div>
+      <img :src="checkSvg" alt="已認證藝人" class="checkSvg blend-text" />
+      <div class="blend-text">已認證藝人</div>
     </div>
-    <h2 class="text-4xl lg:text-6xl">クレナズム</h2>
-    <div class="text-[0.7rem]">每月1,449,231名觀眾</div>
+    <h2 class="text-4xl lg:text-6xl blend-text">{{ aritist.name }}</h2>
+    <div class="text-[0.7rem] blend-text">
+      每月{{ formatNumberWithDot(aritist.followers.total) }}名觀眾
+    </div>
   </header>
 </template>
 <style lang="scss" scoped>
@@ -35,5 +45,12 @@ header {
   object-fit: cover;
   z-index: -1; /* 設為負值確保在文字下方 */
   user-select: none;
+}
+
+.blend-text {
+  color: white;
+  mix-blend-mode: difference;
+  position: relative;
+  z-index: 10;
 }
 </style>

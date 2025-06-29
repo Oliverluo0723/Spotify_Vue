@@ -1,3 +1,7 @@
+import e5 from '@/assets/e5.jpg'
+import culenasm from '@/assets/culenasm.jpg'
+import hitjibungaku from '@/assets/羊文學.jpg'
+
 interface ArtistPreview {
   id: string
   name: string
@@ -10,7 +14,7 @@ interface ArtistPreview {
 }
 
 // 詳細頁（完整資料）
-interface ArtistProps extends ArtistPreview {
+export interface ArtistProps extends ArtistPreview {
   external_urls: {
     spotify: string
   }
@@ -38,12 +42,12 @@ export const mockArtists: ArtistProps[] = [
     genres: ['Indie Rock', 'J-Rock'],
     images: [
       {
-        url: 'https://example.com/images/culenasm_640.jpg',
+        url: culenasm,
         height: 640,
         width: 640,
       },
       {
-        url: 'https://example.com/images/culenasm_300.jpg',
+        url: culenasm,
         height: 300,
         width: 300,
       },
@@ -53,7 +57,7 @@ export const mockArtists: ArtistProps[] = [
   },
   {
     id: '2',
-    name: 'RADWIMPS',
+    name: '羊文學',
     type: 'artist',
     external_urls: {
       spotify: 'https://open.spotify.com/artist/2',
@@ -65,12 +69,12 @@ export const mockArtists: ArtistProps[] = [
     genres: ['Alternative Rock', 'Japanese Rock'],
     images: [
       {
-        url: 'https://example.com/images/radwimps_640.jpg',
+        url: hitjibungaku,
         height: 640,
         width: 640,
       },
       {
-        url: 'https://example.com/images/radwimps_300.jpg',
+        url: hitjibungaku,
         height: 300,
         width: 300,
       },
@@ -80,7 +84,7 @@ export const mockArtists: ArtistProps[] = [
   },
   {
     id: '3',
-    name: 'ONE OK ROCK',
+    name: 'e5',
     type: 'artist',
     external_urls: {
       spotify: 'https://open.spotify.com/artist/3',
@@ -92,12 +96,12 @@ export const mockArtists: ArtistProps[] = [
     genres: ['Japanese Rock', 'Post-Hardcore'],
     images: [
       {
-        url: 'https://example.com/images/oneokrock_640.jpg',
+        url: e5,
         height: 640,
         width: 640,
       },
       {
-        url: 'https://example.com/images/oneokrock_300.jpg',
+        url: e5,
         height: 300,
         width: 300,
       },
