@@ -6,11 +6,24 @@ import {
   PlayCircleFilled,
   RetweetOutlined,
   SwapOutlined,
+  PauseCircleFilled,
+  ApiFilled,
 } from '@ant-design/icons-vue'
-
 const iconStyle = ref({
   fontSize: '1.35rem',
 })
+
+const playTrack = ref(false)
+
+function handlePlay() {
+  playTrack.value = true
+  // 這裡呼叫 Spotify SDK 的播放方法
+}
+
+function handlePause() {
+  playTrack.value = false
+  // 這裡呼叫 Spotify SDK 的暫停方法
+}
 </script>
 <template>
   <footer>
@@ -18,6 +31,7 @@ const iconStyle = ref({
       <a-col :span="6">
         <div></div>
       </a-col>
+      <!-- 中間 -->
       <a-col :span="12">
         <a-flex vertical justify="center" align="center" gap="6" class="w-full h-[72px]">
           <div>
@@ -34,7 +48,19 @@ const iconStyle = ref({
               <!--  -->
               <a-tooltip>
                 <template #title>播放</template>
-                <PlayCircleFilled style="font-size: 1.8rem" class="isHover" />
+                <div></div>
+                <PlayCircleFilled
+                  style="font-size: 1.8rem"
+                  class="isHover"
+                  @click="handlePause"
+                  v-if="playTrack"
+                />
+                <PauseCircleFilled
+                  v-else
+                  style="font-size: 1.8rem"
+                  class="isHover"
+                  @click="handlePlay"
+                />
               </a-tooltip>
               <!--  -->
               <a-tooltip>
@@ -57,8 +83,14 @@ const iconStyle = ref({
           </div>
         </a-flex>
       </a-col>
+      <!-- 右邊 -->
       <a-col :span="6">
-        <div></div>
+        <a-flex class="w-full h-[72px]" justify="center" align="center">
+          <a-tooltip>
+            <template #title>現正播放畫面</template>
+            <ApiFilled class="isHover" />
+          </a-tooltip>
+        </a-flex>
       </a-col>
     </a-row>
   </footer>
@@ -85,7 +117,7 @@ footer {
 
 .isHover:hover {
   cursor: pointer;
-  transform: scale(1.05);
-  transition: all 0.1s;
+  transform: scale(1.2);
+  transition: all 0.15s;
 }
 </style>

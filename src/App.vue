@@ -12,7 +12,7 @@ interface ThemeConfig {
 }
 
 const defaultData: ThemeConfig = {
-  borderRadius: 18,
+  borderRadius: 6,
   colorPrimary: '#3c3c3c',
 }
 

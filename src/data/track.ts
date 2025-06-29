@@ -139,3 +139,76 @@ export interface SpotifyTrack {
   /** 是否為本機檔案（非 Spotify 雲端） */
   is_local: boolean
 }
+
+export const mock4s4kiTrack: SpotifyTrack = {
+  album: {
+    album_type: 'single',
+    total_tracks: 1,
+    available_markets: ['JP', 'US', 'TW'],
+    external_urls: {
+      spotify: 'https://open.spotify.com/album/EXAMPLE_ALBUM_ID',
+    },
+    href: 'https://api.spotify.com/v1/albums/EXAMPLE_ALBUM_ID',
+    id: 'EXAMPLE_ALBUM_ID',
+    images: [
+      {
+        url: 'https://i.scdn.co/image/EXAMPLE_IMAGE_URL',
+        height: 640,
+        width: 640,
+      },
+    ],
+    name: 'ねえ聞いて',
+    release_date: '2024-05-10',
+    release_date_precision: 'day',
+    type: 'album',
+    uri: 'spotify:album:EXAMPLE_ALBUM_ID',
+    artists: [
+      {
+        external_urls: {
+          spotify: 'https://open.spotify.com/artist/5yCWuaBlu42BKsnW89brND',
+        },
+        href: 'https://api.spotify.com/v1/artists/5yCWuaBlu42BKsnW89brND',
+        id: '5yCWuaBlu42BKsnW89brND',
+        name: '4s4ki',
+        type: 'artist',
+        uri: 'spotify:artist:5yCWuaBlu42BKsnW89brND',
+      },
+    ],
+  },
+  artists: [
+    {
+      external_urls: {
+        spotify: 'https://open.spotify.com/artist/5yCWuaBlu42BKsnW89brND',
+      },
+      href: 'https://api.spotify.com/v1/artists/5yCWuaBlu42BKsnW89brND',
+      id: '5yCWuaBlu42BKsnW89brND',
+      name: '4s4ki',
+      type: 'artist',
+      uri: 'spotify:artist:5yCWuaBlu42BKsnW89brND',
+    },
+  ],
+  available_markets: ['JP', 'US', 'TW'],
+  disc_number: 1,
+  duration_ms: 180000,
+  explicit: false,
+  external_ids: {
+    isrc: 'JP1234567890',
+    ean: '0987654321098',
+    upc: '098765432109',
+  },
+  external_urls: {
+    spotify: 'https://open.spotify.com/track/2XVyl3Ys1eXFTmNO7MBqkv',
+  },
+  href: 'https://api.spotify.com/v1/tracks/2XVyl3Ys1eXFTmNO7MBqkv',
+  id: '2XVyl3Ys1eXFTmNO7MBqkv',
+  is_playable: true,
+  linked_from: undefined,
+  restrictions: undefined,
+  name: 'ねえ聞いて',
+  popularity: 65,
+  preview_url: 'https://p.scdn.co/mp3-preview/EXAMPLE_PREVIEW_URL.mp3',
+  track_number: 1,
+  type: 'track',
+  uri: 'spotify:track:2XVyl3Ys1eXFTmNO7MBqkv',
+  is_local: false,
+}
