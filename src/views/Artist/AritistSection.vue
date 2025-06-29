@@ -9,16 +9,17 @@ import { PopularList } from '@/data/data'
 
 const FakePopularList = ref(PopularList)
 
+// 檢視更多
 const ShowMore = ref(false)
 
 function isShowMore() {
   ShowMore.value = !ShowMore.value
-  console.log(ShowMore.value)
 }
 
-// const visibleList = computed(() => {
-//   return ShowMore.value ? FakePopularList.slice(0, 8) : FakePopularList.value.slice(0, 5)
-// })
+const visibleList = computed(() => {
+  return ShowMore.value ? FakePopularList.value.slice(0, 8) : FakePopularList.value.slice(0, 5)
+})
+// 檢視更多
 </script>
 <template>
   <PerfectScrollbar>
@@ -29,7 +30,7 @@ function isShowMore() {
         <a-flex vertical gap="large">
           <h6>熱門</h6>
           <ul class="flex flex-col gap-2">
-            <li v-for="item in FakePopularList" :key="item.id">
+            <li v-for="item in visibleList" :key="item.id">
               <AritistPopularCard :popular-list="item" />
             </li>
           </ul>

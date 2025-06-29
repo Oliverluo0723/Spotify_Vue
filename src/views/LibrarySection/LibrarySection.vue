@@ -25,7 +25,9 @@ const BadgeItems = ref([
         <h4 class="hidden lg:block">你的音樂庫</h4>
         <a-flex gap="small">
           <a-button type="primary" size="small" :icon="h(PlusOutlined)">建立</a-button>
-          <a-button type="primary" circle size="small" :icon="h(ArrowsAltOutlined)"></a-button>
+          <span class="hidden lg:block">
+            <a-button type="primary" circle size="small" :icon="h(ArrowsAltOutlined)"></a-button>
+          </span>
         </a-flex>
       </a-flex>
     </div>

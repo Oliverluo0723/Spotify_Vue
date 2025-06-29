@@ -18,10 +18,9 @@ const router = createRouter({
       path: '/home',
       name: 'home',
       component: Home,
-      redirect: '/home/aritist',
       children: [
         {
-          path: 'aritist',
+          path: 'aritist:id',
           name: 'aritist',
           component: AritistSection,
         },

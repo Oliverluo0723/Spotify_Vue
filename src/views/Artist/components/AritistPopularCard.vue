@@ -23,14 +23,14 @@ const { id, songImg, songName, playCount, isAddedToPlaylist, duration_ms } = toR
     <div class="flex items-center gap-4 w-[250px]">
       <span>{{ id }}</span>
       <img :src="albumImg" alt="專輯" class="albumImg" />
-      <div>{{ songName }}</div>
+      <div class="w-[150px]">{{ songName }}</div>
     </div>
-    <div class="w-[100px]">{{ playCount }}</div>
-    <div class="w-[100px]">
+    <div class="w-[100px] hidden lg:block">{{ playCount }}</div>
+    <div class="w-[70px] sm:w-fit">
       <img class="addedCheckMark" :src="addedCheckMark" alt="" v-if="isAddedToPlaylist" />
     </div>
 
-    <div class="w-[100px]">{{ duration_ms }}</div>
+    <div class="w-[100px] hidden lg:block">{{ duration_ms }}</div>
   </div>
 </template>
 <style lang="scss" scoped>
