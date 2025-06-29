@@ -19,7 +19,7 @@ const { popularList } = defineProps<{
 const { id, songImg, songName, playCount, isAddedToPlaylist, duration_ms } = toRefs(popularList)
 </script>
 <template>
-  <div class="poupler-card flex justify-between items-center">
+  <div v-hover class="poupler-card flex justify-between items-center">
     <div class="flex items-center gap-4 w-[250px]">
       <span>{{ id }}</span>
       <img :src="albumImg" alt="專輯" class="albumImg" />

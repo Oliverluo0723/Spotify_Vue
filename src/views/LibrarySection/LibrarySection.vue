@@ -54,7 +54,7 @@ const BadgeItems = ref([
           <a-avatar shape="square" style="background-color: #93c5fd">
             <template #icon><HeartFilled /></template>
           </a-avatar>
-          <div>
+          <div class="hidden lg:block">
             <div class="text-[0.85rem] text-green-500">已按讚的歌曲</div>
             <div class="text-[0.66rem]">播放清單 5040首歌曲</div>
           </div>

@@ -27,6 +27,7 @@ a {
 .hover-effect {
   position: relative;
   z-index: 1;
+  cursor: pointer;
 }
 
 .hover-effect:hover::before {
