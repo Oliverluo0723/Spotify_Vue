@@ -1,7 +1,16 @@
-interface ArtistProps {
+interface ArtistPreview {
   id: string
   name: string
-  type: 'artist' | 'album'
+  type: 'artist'
+  images: {
+    url: string
+    height: number
+    width: number
+  }[]
+}
+
+// 詳細頁（完整資料）
+interface ArtistProps extends ArtistPreview {
   external_urls: {
     spotify: string
   }
@@ -10,11 +19,6 @@ interface ArtistProps {
     total: number
   }
   genres: string[]
-  images: {
-    url: string
-    height: number
-    width: number
-  }[]
   popularity: number
   href: string
 }
