@@ -14,7 +14,7 @@ console.table(aritist)
   <header class="p-4 flex flex-col justify-center gap-[0.8rem]">
     <img :src="aritist.images[0].url" alt="" class="aritistImg" />
     <div class="flex items-center gap-2">
-      <img :src="checkSvg" alt="已認證藝人" class="checkSvg blend-text" />
+      <img :src="checkSvg" alt="已認證藝人" class="checkSvg" />
       <div class="blend-text">已認證藝人</div>
     </div>
     <h2 class="text-4xl lg:text-6xl blend-text">{{ aritist.name }}</h2>

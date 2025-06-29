@@ -1,6 +1,8 @@
 import e5 from '@/assets/e5.jpg'
 import culenasm from '@/assets/culenasm.jpg'
 import hitjibungaku from '@/assets/羊文學.jpg'
+import hakubi from '@/assets/Hakubi.jpg'
+import asaki from '@/assets/4s4ki.jpg'
 
 interface ArtistPreview {
   id: string
@@ -108,5 +110,60 @@ export const mockArtists: ArtistProps[] = [
     ],
     popularity: 88,
     href: 'https://api.spotify.com/v1/artists/3',
+  },
+  {
+    id: '4',
+    name: 'Hakubi',
+    type: 'artist',
+    external_urls: {
+      spotify: 'https://open.spotify.com/artist/4',
+    },
+    followers: {
+      href: null,
+      total: 320000,
+    },
+    genres: ['Indie Rock', 'Emo', 'J-Rock'],
+    images: [
+      {
+        url: hakubi,
+        height: 640,
+        width: 640,
+      },
+      {
+        url: hakubi,
+        height: 300,
+        width: 300,
+      },
+    ],
+    popularity: 70,
+    href: 'https://api.spotify.com/v1/artists/4',
+  },
+  // 新增 4s4ki
+  {
+    id: '5',
+    name: '4s4ki',
+    type: 'artist',
+    external_urls: {
+      spotify: 'https://open.spotify.com/artist/5',
+    },
+    followers: {
+      href: null,
+      total: 500000,
+    },
+    genres: ['Hyperpop', 'Electropop', 'J-Pop'],
+    images: [
+      {
+        url: asaki,
+        height: 640,
+        width: 640,
+      },
+      {
+        url: asaki,
+        height: 300,
+        width: 300,
+      },
+    ],
+    popularity: 85,
+    href: 'https://api.spotify.com/v1/artists/5',
   },
 ]
