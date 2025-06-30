@@ -6,17 +6,17 @@ import LibrarySection from '@/views/LibrarySection/LibrarySection.vue'
 <template>
   <main>
     <a-row wrap :gutter="[16, 16]">
-      <a-col :xs="{ span: 6 }" :lg="{ span: 6 }" class="Home-col">
+      <a-col :xs="{ span: 4 }" :lg="{ span: 6 }" class="Home-col">
         <div class="col-content">
           <LibrarySection />
         </div>
       </a-col>
-      <a-col :xs="{ span: 12 }" :lg="{ span: 12 }" class="Home-col">
+      <a-col :xs="{ span: 16 }" :lg="{ span: 12 }" class="Home-col">
         <div class="col-content">
           <RouterView />
         </div>
       </a-col>
-      <a-col :xs="{ span: 6 }" :lg="{ span: 6 }" class="Home-col">
+      <a-col :xs="{ span: 4 }" :lg="{ span: 6 }" class="Home-col">
         <div class="col-content">Hello</div>
       </a-col>
     </a-row>

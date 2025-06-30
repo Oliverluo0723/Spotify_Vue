@@ -1,6 +1,9 @@
 <script setup lang="ts">
-import { h, ref } from 'vue'
-import { CaretRightOutlined, EllipsisOutlined } from '@ant-design/icons-vue'
+import { ref } from 'vue'
+// components
+import PlayButton from '@/components/PlayButton.vue'
+// icon
+import { EllipsisOutlined } from '@ant-design/icons-vue'
 let isFollow = ref<boolean>(false)
 let isFollowText = ref<string>('未關注')
 
@@ -12,13 +15,7 @@ function changeisFollow() {
 <template>
   <div class="aritist-sub flex items-center gap-4">
     <!-- 播放鍵 -->
-    <a-button
-      size="large"
-      type="primary"
-      shape="circle"
-      class="btn"
-      :icon="h(CaretRightOutlined)"
-    />
+    <PlayButton />
     <!-- 關注鍵 -->
     <a-button size="small" type="primary" :ghost="!isFollow" @click="changeisFollow">
       {{ isFollowText }}
