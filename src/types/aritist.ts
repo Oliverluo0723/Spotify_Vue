@@ -4,32 +4,29 @@ import hitjibungaku from '@/assets/羊文學.jpg'
 import hakubi from '@/assets/Hakubi.jpg'
 import asaki from '@/assets/4s4ki.jpg'
 
-interface ArtistPreview {
+export interface Artist {
+  external_urls: {
+    spotify: string
+  }
+  followers: {
+    href: string | null // 通常是 null
+    total: number
+  }
+  genres: string[]
+  href: string
   id: string
-  name: string
-  type: 'artist'
   images: {
     url: string
     height: number
     width: number
   }[]
-}
-
-// 詳細頁（完整資料）
-export interface ArtistProps extends ArtistPreview {
-  external_urls: {
-    spotify: string
-  }
-  followers: {
-    href: null
-    total: number
-  }
-  genres: string[]
+  name: string
   popularity: number
-  href: string
+  type: 'artist' // 固定為 'artist'
+  uri: string
 }
 
-export const mockArtists: ArtistProps[] = [
+export const mockArtists: Artist[] = [
   {
     id: '1',
     name: 'Culenasm',
@@ -56,6 +53,7 @@ export const mockArtists: ArtistProps[] = [
     ],
     popularity: 75,
     href: 'https://api.spotify.com/v1/artists/1',
+    uri: 'spotify:artist:1',
   },
   {
     id: '2',
@@ -83,6 +81,7 @@ export const mockArtists: ArtistProps[] = [
     ],
     popularity: 90,
     href: 'https://api.spotify.com/v1/artists/2',
+    uri: 'spotify:artist:2',
   },
   {
     id: '3',
@@ -110,6 +109,7 @@ export const mockArtists: ArtistProps[] = [
     ],
     popularity: 88,
     href: 'https://api.spotify.com/v1/artists/3',
+    uri: 'spotify:artist:3',
   },
   {
     id: '4',
@@ -137,6 +137,7 @@ export const mockArtists: ArtistProps[] = [
     ],
     popularity: 70,
     href: 'https://api.spotify.com/v1/artists/4',
+    uri: 'spotify:artist:4',
   },
   // 新增 4s4ki
   {
@@ -165,5 +166,6 @@ export const mockArtists: ArtistProps[] = [
     ],
     popularity: 85,
     href: 'https://api.spotify.com/v1/artists/5',
+    uri: 'spotify:artist:5',
   },
 ]

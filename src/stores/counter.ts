@@ -1,6 +1,6 @@
 import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
-import type { SpotifyTrack } from '@/data/track'
+import type { SpotifyTrack } from '@/types/track'
 
 export const useCounterStore = defineStore('counter', () => {
   const count = ref(0)

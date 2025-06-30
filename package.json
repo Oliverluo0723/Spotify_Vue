@@ -16,6 +16,7 @@
     "@ant-design/icons-vue": "^7.0.1",
     "@tailwindcss/vite": "^4.1.11",
     "ant-design-vue": "~4.2.6",
+    "axios": "^1.10.0",
     "pinia": "^3.0.3",
     "scss": "^0.2.4",
     "tailwindcss": "^4.1.11",

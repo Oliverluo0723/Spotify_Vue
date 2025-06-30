@@ -2,7 +2,7 @@
 import { h, ref } from 'vue'
 import { RouterLink } from 'vue-router'
 // 假資料
-import { mockArtists } from '@/data/aritist'
+import { mockArtists } from '@/types/aritist'
 const artistData = ref(mockArtists)
 </script>
 <template>

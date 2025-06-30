@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ArtistProps } from '@/data/aritist'
+import type { ArtistProps } from '@/types/aritist'
 const props = defineProps<{
   artist: ArtistProps
 }>()

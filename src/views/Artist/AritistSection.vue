@@ -6,8 +6,8 @@ import AritistHeader from './components/AritistHeader.vue'
 import AritistSub from './components/AritistSub.vue'
 import AritistPopularCard from './components/AritistPopularCard.vue'
 // 假資料
-import { PopularList } from '@/data/data'
-import { mockArtists } from '@/data/aritist'
+import { PopularList } from '@/types/data'
+import { mockArtists } from '@/types/aritist'
 
 const route = useRoute()
 
