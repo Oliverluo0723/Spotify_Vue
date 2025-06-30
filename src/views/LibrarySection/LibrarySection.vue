@@ -3,7 +3,7 @@ import { h, ref } from 'vue'
 // 組件
 import Badge from '@/components/Badge.vue'
 import LibraryList from '@/views/LibrarySection/components/libraryList.vue'
-import TrackCard from '@/views/Collection/Track/TrackCard.vue'
+import TrackCard from '@/views/Collection/Track/components/TrackCard.vue'
 // icon
 import {
   PlusOutlined,
