@@ -13,7 +13,9 @@ import LibrarySection from '@/views/LibrarySection/LibrarySection.vue'
       </a-col>
       <a-col :xs="{ span: 16 }" :lg="{ span: 12 }" class="Home-col">
         <div class="col-content">
-          <RouterView />
+          <PerfectScrollbar>
+            <RouterView />
+          </PerfectScrollbar>
         </div>
       </a-col>
       <a-col :xs="{ span: 4 }" :lg="{ span: 6 }" class="Home-col">
@@ -33,5 +35,10 @@ main {
   padding: 8px;
   background-color: #ededed;
   border-radius: 6px;
+}
+
+// 100svh - Header高度 - Footer高度
+.ps {
+  height: calc(100svh - 60px - 72px);
 }
 </style>

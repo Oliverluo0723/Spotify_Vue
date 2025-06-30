@@ -36,25 +36,23 @@ const visibleList = computed(() => {
 // 檢視更多
 </script>
 <template>
-  <PerfectScrollbar>
-    <main>
-      <AritistHeader v-if="currentArtist" :key="currentArtist.id" :artist="currentArtist" />
-      <AritistSub />
-      <section class="mt-4">
-        <a-flex vertical gap="large">
-          <h6>熱門</h6>
-          <ul class="flex flex-col gap-2">
-            <li v-for="item in visibleList" :key="item.id">
-              <AritistPopularCard :popular-list="item" />
-            </li>
-          </ul>
-          <div class="w-full">
-            <span @click="isShowMore" class="text-[0.7rem] text-gray-500">檢視更多</span>
-          </div>
-        </a-flex>
-      </section>
-    </main>
-  </PerfectScrollbar>
+  <main>
+    <AritistHeader v-if="currentArtist" :key="currentArtist.id" :artist="currentArtist" />
+    <AritistSub />
+    <section class="mt-4">
+      <a-flex vertical gap="large">
+        <h6>熱門</h6>
+        <ul class="flex flex-col gap-2">
+          <li v-for="item in visibleList" :key="item.id">
+            <AritistPopularCard :popular-list="item" />
+          </li>
+        </ul>
+        <div class="w-full">
+          <span @click="isShowMore" class="text-[0.7rem] text-gray-500">檢視更多</span>
+        </div>
+      </a-flex>
+    </section>
+  </main>
 </template>
 <style lang="scss" scoped>
 main {
@@ -64,10 +62,5 @@ main {
   display: flex;
   flex-direction: column;
   gap: clamp(0.8rem, 10vw, 1rem);
-}
-
-// 100svh - Header高度 - Footer高度
-.ps {
-  height: calc(100svh - 60px - 72px);
 }
 </style>

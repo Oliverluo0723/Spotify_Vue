@@ -4,20 +4,27 @@ import TrackTop from './components/TrackTop.vue'
 // components
 import PlayButton from '@/components/PlayButton.vue'
 // icon
-import { DownloadOutlined } from '@ant-design/icons-vue'
+import { DownloadOutlined, UnorderedListOutlined } from '@ant-design/icons-vue'
 </script>
 <template>
   <section>
     <TrackTop />
     <div class="track-sub">
-      <div>
-        <PlayButton />
-        <a-tooltip>
-          <template #title>離線下載</template>
-          <DownloadOutlined style="font-size: 1.5rem" />
-        </a-tooltip>
-      </div>
-      <div></div>
+      <a-flex justify="space-between" align="center" class="w-full h-full">
+        <div class="flex gap-4">
+          <PlayButton />
+          <a-tooltip>
+            <template #title>離線下載</template>
+            <DownloadOutlined style="font-size: 1.5rem" />
+          </a-tooltip>
+        </div>
+        <!--  -->
+        <div>
+          <span>清單</span>
+          <UnorderedListOutlined />
+        </div>
+        <!--  -->
+      </a-flex>
     </div>
   </section>
 </template>
@@ -25,6 +32,5 @@ import { DownloadOutlined } from '@ant-design/icons-vue'
 .track-sub {
   width: 100%;
   height: 80px;
-  background-color: skyblue;
 }
 </style>
