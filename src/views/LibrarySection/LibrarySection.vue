@@ -2,14 +2,14 @@
 import { h, ref } from 'vue'
 // 組件
 import Badge from '@/components/Badge.vue'
-import LibraryList from './components/libraryList.vue'
+import LibraryList from '@/views/LibrarySection/components/libraryList.vue'
+import TrackCard from '@/views/Collection/Track/TrackCard.vue'
 // icon
 import {
   PlusOutlined,
   ArrowsAltOutlined,
   SearchOutlined,
   UnorderedListOutlined,
-  HeartFilled,
 } from '@ant-design/icons-vue'
 const BadgeItems = ref([
   { id: 101, itemName: '播放清單' },
@@ -48,18 +48,9 @@ const BadgeItems = ref([
         </div>
       </a-flex>
     </div>
+    <!-- library-list -->
     <div class="library-list mt-2">
-      <div v-hover class="w-full h-[40px]">
-        <a-flex align="center" gap="12">
-          <a-avatar shape="square" style="background-color: #93c5fd">
-            <template #icon><HeartFilled /></template>
-          </a-avatar>
-          <div class="hidden lg:block">
-            <div class="text-[0.85rem] text-green-500">已按讚的歌曲</div>
-            <div class="text-[0.66rem]">播放清單 5040首歌曲</div>
-          </div>
-        </a-flex>
-      </div>
+      <TrackCard />
       <LibraryList />
     </div>
   </section>
