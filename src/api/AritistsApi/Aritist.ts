@@ -3,10 +3,12 @@ import { instance } from '@/api/config'
 // type
 import type { Artist } from '@/types/aritist'
 
+const API_ARTISTS = '/artists'
+
 // 獲取單個藝人
 export async function getArtists(id: string = '5UOj6C1InE5WTmBXNuemt4'): Promise<Artist> {
-  const res = await instance.get(`/artists/${id}`)
-  //   console.table(res.data)
+  const res = await instance.get(`${API_ARTISTS}/${id}`)
+  console.dir(res.data)
   return res.data
 }
 
@@ -14,11 +16,27 @@ export async function getArtists(id: string = '5UOj6C1InE5WTmBXNuemt4'): Promise
 export async function getSeveralArtists(
   ids: string[] = ['5UOj6C1InE5WTmBXNuemt4'],
 ): Promise<Artist[]> {
-  const res = await instance.get('/artists', {
+  const res = await instance.get(`${API_ARTISTS}`, {
     params: {
       ids: ids.join(','),
     },
   })
   //   console.table(res.data.artists)
   return res.data.artists
+}
+
+// 獲取藝人專輯
+export async function getArtistsAlbums(id: string = '5UOj6C1InE5WTmBXNuemt4') {
+  const res = await instance.get(`${API_ARTISTS}/${id}`)
+  console.dir(res.data)
+
+  return res.data
+}
+
+// 獲取藝人熱門曲目
+export async function getArtistsTopTracks(id: string = '5UOj6C1InE5WTmBXNuemt4') {
+  const res = await instance.get(`${API_ARTISTS}/${id}/top-tracks`)
+  console.log(res.data)
+
+  return res.data
 }

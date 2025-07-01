@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { h, ref } from 'vue'
+import { h, ref, onMounted } from 'vue'
+// Api
+import { getArtistsTopTracks } from '@/api/AritistsApi/Aritist'
 // 組件
 import Badge from '@/components/Badge.vue'
 import LibraryList from '@/views/LibrarySection/components/libraryList.vue'
@@ -17,6 +19,11 @@ const BadgeItems = ref([
   { id: 103, itemName: '專輯' },
   { id: 104, itemName: 'Podcast和節目' },
 ])
+
+const handleClick = async () => {
+  console.log(5)
+  await getArtistsTopTracks()
+}
 </script>
 <template>
   <section>
@@ -54,6 +61,7 @@ const BadgeItems = ref([
       <LibraryList />
     </div>
   </section>
+  <button @click="handleClick">點我</button>
 </template>
 <style lang="scss" scoped>
 section {
