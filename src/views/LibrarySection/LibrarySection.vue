@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import { h, ref, onMounted } from 'vue'
-// Api
-import { getArtistsTopTracks } from '@/api/AritistApi'
 // 組件
 import Badge from '@/components/Badge.vue'
 import LibraryList from '@/views/LibrarySection/components/libraryList.vue'
@@ -19,9 +17,6 @@ const BadgeItems = ref([
   { id: 103, itemName: '專輯' },
   { id: 104, itemName: 'Podcast和節目' },
 ])
-// fakeData
-import { mockAlbum } from '@/types/album'
-console.dir(mockAlbum)
 </script>
 <template>
   <section>
