@@ -10,17 +10,19 @@ export interface TokenResponse {
 
 export class SpotifyTokenService {
   private static readonly API_BASE_URL =
-    import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001'
+    import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:3000'
 
   /**
    * 使用授權碼交換 access token
    */
-  public static async exchangeCodeForTokens(code: string): Promise<TokenResponse> {
+  public static async exchangeCodeForTokens(code: string, state: string): Promise<TokenResponse> {
     try {
       const response = await axios.post<TokenResponse>(
         `${this.API_BASE_URL}/api/auth/spotify/callback`,
-        { code },
+        { code, state },
       )
+
+      console.log(response.data)
 
       const { access_token, refresh_token, expires_in } = response.data
 

@@ -5,6 +5,10 @@ import Header from '@/layouts/Header.vue'
 import Footer from '@/layouts/Footer.vue'
 // views
 import LibrarySection from '@/views/LibrarySection/LibrarySection.vue'
+
+import { getCurrentUserProfile } from '@/api/UserApi'
+
+getCurrentUserProfile()
 </script>
 
 <template>

@@ -44,7 +44,7 @@ onMounted(async () => {
     }
 
     // 交換 access token
-    await SpotifyTokenService.exchangeCodeForTokens(code)
+    await SpotifyTokenService.exchangeCodeForTokens(code, state)
 
     // 清除 state
     SpotifyAuth.clearState()
@@ -53,7 +53,7 @@ onMounted(async () => {
 
     // 跳轉到主頁面
     setTimeout(() => {
-      router.push('/dashboard')
+      router.push('/home')
     }, 1500)
   } catch (err) {
     console.error('授權回調處理失敗:', err)

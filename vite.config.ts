@@ -20,7 +20,11 @@ export default defineConfig({
     }),
     tailwindcss(),
   ],
-  base: '/jd',
+  server: {
+    host: '127.0.0.1',
+    port: 5173,
+  },
+  // base: '/jd',
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
