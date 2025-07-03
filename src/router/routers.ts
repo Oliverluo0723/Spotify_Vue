@@ -4,6 +4,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '@/layouts/Home.vue'
 
 // views
+import LoginPage from '@/views/LoginPage.vue'
 import AritistSection from '@/views/Artist/AritistSection.vue'
 import TrackPage from '@/views/Collection/Track/TrackPage.vue'
 
@@ -13,7 +14,7 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      redirect: '/home',
+      component: LoginPage,
     },
     {
       path: '/home',

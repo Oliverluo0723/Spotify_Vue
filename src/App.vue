@@ -2,9 +2,6 @@
 import { ref } from 'vue'
 // UI
 import { ConfigProvider, theme } from 'ant-design-vue'
-// 組件
-import Header from '@/layouts/Header.vue'
-import Footer from './layouts/Footer.vue'
 
 interface ThemeConfig {
   borderRadius: number
@@ -31,9 +28,7 @@ const { token } = theme.useToken()
     }"
   >
     <div class="app">
-      <Header />
       <RouterView />
-      <Footer />
     </div>
   </ConfigProvider>
 </template>

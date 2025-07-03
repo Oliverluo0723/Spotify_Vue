@@ -1,9 +1,14 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
+// Layouts
+import Header from '@/layouts/Header.vue'
+import Footer from '@/layouts/Footer.vue'
+// views
 import LibrarySection from '@/views/LibrarySection/LibrarySection.vue'
 </script>
 
 <template>
+  <Header />
   <main>
     <a-row wrap :gutter="[16, 16]">
       <a-col :xs="{ span: 4 }" :lg="{ span: 6 }" class="Home-col">
@@ -23,6 +28,7 @@ import LibrarySection from '@/views/LibrarySection/LibrarySection.vue'
       </a-col>
     </a-row>
   </main>
+  <Footer />
 </template>
 
 <style lang="scss" scoped>
