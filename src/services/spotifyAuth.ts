@@ -1,3 +1,5 @@
+import { SpotifyTokenService } from '@/services/spotifyTokenServices'
+
 export class SpotifyAuth {
   private static readonly CLIENT_ID = import.meta.env.VITE_SPOTIFY_CLIENT_ID
   private static readonly REDIRECT_URI = import.meta.env.VITE_SPOTIFY_REDIRECT_URI
@@ -50,5 +52,13 @@ export class SpotifyAuth {
    */
   public static isAuthenticated(): boolean {
     return !!localStorage.getItem('spotify_access_token')
+  }
+
+  /**
+   * 登出 (清除所有認證資料)
+   */
+  public static logout(): void {
+    SpotifyTokenService.clearTokens()
+    this.clearState()
   }
 }
