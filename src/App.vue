@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 // UI
-import { ConfigProvider, theme } from 'ant-design-vue'
+import { ConfigProvider } from 'ant-design-vue'
 
 interface ThemeConfig {
   borderRadius: number
@@ -14,8 +14,6 @@ const defaultData: ThemeConfig = {
 }
 
 const data = ref<ThemeConfig>(defaultData)
-
-const { token } = theme.useToken()
 </script>
 
 <template>
@@ -36,7 +34,7 @@ const { token } = theme.useToken()
 <style scoped lang="scss">
 .app {
   position: relative;
-  width: 100vw;
+  width: 100dvw;
   min-height: 100svh;
   padding: 0 8px;
 }
