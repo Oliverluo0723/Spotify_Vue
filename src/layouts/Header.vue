@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { h, ref } from 'vue'
-// UI
-import { Input } from 'ant-design-vue'
+import { h, ref, onMounted, computed } from 'vue'
+import { useUserStore } from '@/stores/userStore'
+import { storeToRefs } from 'pinia'
 // icon
 import {
   SearchOutlined,
@@ -22,6 +22,18 @@ const menuItems = ref([
   { id: 104, menuItem: '下載', Url: '' },
   { id: 105, menuItem: '設定', Url: '' },
 ])
+
+const userStore = useUserStore()
+
+const { profile } = storeToRefs(userStore)
+
+const userImg = computed(() => {
+  return profile.value?.images?.[1]?.url || profile.value?.images?.[0]?.url || ''
+})
+
+onMounted(() => {
+  userStore.fetchProfile()
+})
 </script>
 <template>
   <header>
@@ -55,9 +67,7 @@ const menuItems = ref([
         <TeamOutlined />
       </a-tooltip>
       <a-dropdown>
-        <a-avatar>
-          <template #icon><UserOutlined /></template>
-        </a-avatar>
+        <a-avatar :src="userImg"> </a-avatar>
         <template #overlay>
           <a-menu>
             <a-menu-item v-for="item in menuItems" :key="item.id">

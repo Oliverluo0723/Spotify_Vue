@@ -8,7 +8,6 @@ import { formatNumberWithDot } from '@/utils/formatNumberWithDot'
 import checkSvg from '@/assets/check.svg'
 
 const aritist = props.artist
-console.table(aritist)
 </script>
 <template>
   <header class="p-4 flex flex-col justify-center gap-[0.8rem]">

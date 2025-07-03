@@ -2,14 +2,14 @@ import { defineStore } from 'pinia'
 import type { SpotifyUserProfile } from '@/types/user'
 import { getCurrentUserProfile } from '@/api/UserApi'
 
-export const userStore = defineStore('userStore', {
+export const useUserStore = defineStore('useUserStore', {
   state: () => ({
-    profile: null,
+    profile: null as SpotifyUserProfile | null,
   }),
   actions: {
     async fetchProfile() {
       try {
-        const data = await getCurrentUserProfile()
+        const data: SpotifyUserProfile = await getCurrentUserProfile()
 
         if (data) {
           this.profile = data
