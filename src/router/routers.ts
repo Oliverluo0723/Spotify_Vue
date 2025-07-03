@@ -50,17 +50,17 @@ const router = createRouter({
 })
 
 // 路由守衛
-router.beforeEach((to, from, next) => {
-  const requiresAuth = to.meta.requiresAuth
-  const isAuthenticated = SpotifyAuth.isAuthenticated()
+// router.beforeEach((to, from, next) => {
+//   const requiresAuth = to.meta.requiresAuth
+//   const isAuthenticated = SpotifyAuth.isAuthenticated()
 
-  if (requiresAuth && !isAuthenticated) {
-    next('/login')
-  } else if (to.path === '/login' && isAuthenticated) {
-    next('/home')
-  } else {
-    next()
-  }
-})
+//   if (requiresAuth && !isAuthenticated) {
+//     next('/login')
+//   } else if (to.path === '/login' && isAuthenticated) {
+//     next('/home')
+//   } else {
+//     next()
+//   }
+// })
 
 export default router
