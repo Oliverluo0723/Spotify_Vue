@@ -2,6 +2,7 @@
 import { instance, accessInstance } from '@/api/config'
 // type
 import type { ArtistProps } from '@/types/aritist'
+import type { SpotifyTrack } from '@/types/track'
 
 const API_ARTISTS = '/artists'
 
@@ -33,9 +34,10 @@ export async function getArtistsAlbums(id: string = '5UOj6C1InE5WTmBXNuemt4') {
 }
 
 // 獲取藝人熱門曲目
-export async function getArtistsTopTracks(id: string = '5UOj6C1InE5WTmBXNuemt4') {
+export async function getArtistsTopTracks(
+  id: string = '5UOj6C1InE5WTmBXNuemt4',
+): Promise<SpotifyTrack[]> {
   const res = await accessInstance.get(`${API_ARTISTS}/${id}/top-tracks`)
-  console.log(res.data)
 
-  return res.data
+  return res.data.tracks
 }
