@@ -5,6 +5,7 @@ import { useRoute } from 'vue-router'
 import AritistHeader from './components/AritistHeader.vue'
 import AritistSub from './components/AritistSub.vue'
 import AritistPopularCard from './components/AritistPopularCard.vue'
+import ChildPageFooter from '@/layouts/childPageFooter.vue'
 // Api
 import { getArtists, getArtistsTopTracks } from '@/api/AritistApi'
 // type
@@ -16,14 +17,6 @@ const route = useRoute()
 const Artist = ref<ArtistProps | null>(null)
 const ArtistToptrack = ref<SpotifyTrack[] | null>(null)
 
-async function fetchArtist(id: string): Promise<void> {
-  Artist.value = await getArtists(id)
-}
-
-async function fetchArtistTopTrack(id: string): Promise<void> {
-  ArtistToptrack.value = await getArtistsTopTracks(id)
-}
-
 watch(
   () => route.params.id,
   (newId) => {
@@ -34,6 +27,14 @@ watch(
   },
   { immediate: true },
 )
+
+async function fetchArtist(id: string): Promise<void> {
+  Artist.value = await getArtists(id)
+}
+
+async function fetchArtistTopTrack(id: string): Promise<void> {
+  ArtistToptrack.value = await getArtistsTopTracks(id)
+}
 
 // 檢視更多
 const ShowMore = ref(false)
@@ -47,10 +48,6 @@ const displayedTracks = computed(() => {
   if (!ArtistToptrack.value) return []
   return ShowMore.value ? ArtistToptrack.value.slice(0, 10) : ArtistToptrack.value.slice(0, 5)
 })
-
-computed(() => {})
-
-// 檢視更多
 </script>
 
 <template>
@@ -72,6 +69,7 @@ computed(() => {})
         </div>
       </a-flex>
     </section>
+    <ChildPageFooter />
   </main>
 </template>
 <style lang="scss" scoped>
