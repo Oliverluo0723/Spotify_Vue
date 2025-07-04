@@ -4,7 +4,7 @@ import hitjibungaku from '@/assets/羊文學.jpg'
 import hakubi from '@/assets/Hakubi.jpg'
 import asaki from '@/assets/4s4ki.jpg'
 
-export interface Artist {
+export interface ArtistProps {
   external_urls: {
     spotify: string
   }

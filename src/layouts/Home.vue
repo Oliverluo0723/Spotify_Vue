@@ -5,10 +5,9 @@ import Header from '@/layouts/Header.vue'
 import Footer from '@/layouts/Footer.vue'
 // views
 import LibrarySection from '@/views/LibrarySection/LibrarySection.vue'
+import { getFollowedArtists } from '@/api/UserApi'
 
-import { getCurrentUserProfile } from '@/api/UserApi'
-
-getCurrentUserProfile()
+getFollowedArtists()
 </script>
 
 <template>

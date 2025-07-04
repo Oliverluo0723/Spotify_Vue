@@ -3,7 +3,15 @@ import { SpotifyTokenService } from '@/services/spotifyTokenServices'
 export class SpotifyAuth {
   private static readonly CLIENT_ID = import.meta.env.VITE_SPOTIFY_CLIENT_ID
   private static readonly REDIRECT_URI = import.meta.env.VITE_SPOTIFY_REDIRECT_URI
-  private static readonly SCOPES = ['user-read-private', 'user-read-email', 'playlist-read-private']
+  private static readonly SCOPES = [
+    'user-read-private',
+    'user-read-email',
+    'playlist-read-private',
+    'user-follow-read',
+    'app-remote-control',
+    'streaming',
+    'playlist-read-collaborative',
+  ]
 
   // 生成隨機 state 參數用於安全驗證
   public static generateRandomString(length: number): string {
