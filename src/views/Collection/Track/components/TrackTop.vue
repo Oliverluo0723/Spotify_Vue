@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ref } from 'vue'
 // icon
 import { HeartFilled } from '@ant-design/icons-vue'
 import { formatNumberWithDot } from '@/utils/formatNumberWithDot'

@@ -19,11 +19,6 @@ onMounted(async () => {
     const state = urlParams.get('state')
     const errorParam = urlParams.get('error')
 
-    console.log('我是: urlParams' + urlParams)
-    console.log('我是: code' + code)
-    console.log('我是: state' + state)
-    console.log('我是: errorParam' + errorParam)
-
     // 檢查是否有錯誤
     if (errorParam) {
       throw new Error(`Spotify 授權被拒絕: ${errorParam}`)

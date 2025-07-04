@@ -22,8 +22,6 @@ export class SpotifyTokenService {
         { code, state },
       )
 
-      console.log(response.data)
-
       const { access_token, refresh_token, expires_in } = response.data
 
       // 儲存 tokens

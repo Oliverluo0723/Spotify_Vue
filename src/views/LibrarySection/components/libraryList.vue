@@ -1,14 +1,20 @@
 <script setup lang="ts">
-import { h, ref } from 'vue'
+import { h, ref, onMounted } from 'vue'
 import { RouterLink } from 'vue-router'
-// 假資料
-import { mockArtists } from '@/types/aritist'
-const artistData = ref(mockArtists)
+import type { ArtistProps } from '@/types/aritist'
+// Api
+import { getFollowedArtists } from '@/api/UserApi'
+const ArtistData = ref<ArtistProps[]>([])
+
+onMounted(async () => {
+  const data = await getFollowedArtists()
+  ArtistData.value = data
+})
 </script>
 <template>
   <section>
     <ul class="w-full">
-      <li v-for="item in artistData" :key="item.id" class="mt-3 relative z-10">
+      <li v-for="item in ArtistData" :key="item.id" class="mt-3 relative z-10">
         <RouterLink :to="`/home/aritist${item.id}`">
           <div v-hover>
             <a-flex align="center" gap="12">

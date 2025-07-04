@@ -19,7 +19,6 @@ const currentArtist = computed(() => {
   const id = route.params.id as string
   return mockData.value.find((artist) => artist.id === id)
 })
-console.log('當前藝人:', currentArtist.value?.name)
 
 // 找藝人
 
