@@ -11,14 +11,14 @@ import LibrarySection from '@/views/LibrarySection/LibrarySection.vue'
   <Header />
   <main>
     <a-row wrap :gutter="[16, 16]">
-      <a-col :xs="{ span: 4 }" :lg="{ span: 6 }" class="Home-col">
+      <a-col :xs="{ span: 4 }" :lg="{ span: 5 }" class="Home-col">
         <div class="col-content">
           <PerfectScrollbar>
             <LibrarySection />
           </PerfectScrollbar>
         </div>
       </a-col>
-      <a-col :xs="{ span: 16 }" :lg="{ span: 12 }" class="Home-col">
+      <a-col :xs="{ span: 16 }" :lg="{ span: 15 }" class="Home-col">
         <div class="col-content">
           <PerfectScrollbar>
             <RouterView />

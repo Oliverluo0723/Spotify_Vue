@@ -3,7 +3,6 @@ import type { ArtistProps } from '@/types/aritist'
 const props = defineProps<{
   artist: ArtistProps
 }>()
-import airtistImg from '@/assets/culenasm.jpg'
 import { formatNumberWithDot } from '@/utils/formatNumberWithDot'
 import checkSvg from '@/assets/check.svg'
 
@@ -11,13 +10,13 @@ const aritist = props.artist
 </script>
 <template>
   <header class="p-4 flex flex-col justify-center gap-[0.8rem]">
-    <img :src="aritist.images[0].url" alt="" class="aritistImg" />
+    <img :src="aritist.images[0].url" alt="aritistImg" class="aritistImg" />
     <div class="flex items-center gap-2">
       <img :src="checkSvg" alt="已認證藝人" class="checkSvg" />
       <div class="blend-text">已認證藝人</div>
     </div>
     <h2 class="text-4xl lg:text-6xl blend-text">{{ aritist.name }}</h2>
-    <div class="text-[0.7rem] blend-text">
+    <div class="text-[0.85rem] blend-text">
       每月{{ formatNumberWithDot(aritist.followers.total) }}名觀眾
     </div>
   </header>
@@ -26,7 +25,7 @@ const aritist = props.artist
 header {
   position: relative;
   width: 100%;
-  height: clamp(220px, 40vw, 260px);
+  height: clamp(240px, 40vw, 320px);
   color: #ededed;
   z-index: 100;
 }
@@ -42,6 +41,7 @@ header {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   z-index: -1; /* 設為負值確保在文字下方 */
   user-select: none;
 }

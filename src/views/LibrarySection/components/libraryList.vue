@@ -15,7 +15,7 @@ onMounted(async () => {
   <section>
     <ul class="w-full">
       <li v-for="item in ArtistData" :key="item.id" class="mt-3 relative z-10">
-        <RouterLink :to="`/home/aritist${item.id}`">
+        <RouterLink :to="`/home/aritist/${item.id}`">
           <div v-hover>
             <a-flex align="center" gap="12">
               <div>

@@ -1,22 +1,21 @@
 // config
-import { instance } from '@/api/config'
+import { instance, accessInstance } from '@/api/config'
 // type
-import type { Artist } from '@/types/aritist'
+import type { ArtistProps } from '@/types/aritist'
 
 const API_ARTISTS = '/artists'
 
 // 獲取單個藝人
-export async function getArtists(id: string = '5UOj6C1InE5WTmBXNuemt4'): Promise<Artist> {
-  const res = await instance.get(`${API_ARTISTS}/${id}`)
-  console.dir(res.data)
+export async function getArtists(id: string = '5UOj6C1InE5WTmBXNuemt4'): Promise<ArtistProps> {
+  const res = await accessInstance.get(`${API_ARTISTS}/${id}`)
   return res.data
 }
 
 // 獲取多個藝人 最多50筆
 export async function getSeveralArtists(
   ids: string[] = ['5UOj6C1InE5WTmBXNuemt4'],
-): Promise<Artist[]> {
-  const res = await instance.get(`${API_ARTISTS}`, {
+): Promise<ArtistProps[]> {
+  const res = await accessInstance.get(`${API_ARTISTS}`, {
     params: {
       ids: ids.join(','),
     },
@@ -27,7 +26,7 @@ export async function getSeveralArtists(
 
 // 獲取藝人專輯
 export async function getArtistsAlbums(id: string = '5UOj6C1InE5WTmBXNuemt4') {
-  const res = await instance.get(`${API_ARTISTS}/${id}`)
+  const res = await accessInstance.get(`${API_ARTISTS}/${id}`)
   console.dir(res.data)
 
   return res.data
@@ -35,7 +34,7 @@ export async function getArtistsAlbums(id: string = '5UOj6C1InE5WTmBXNuemt4') {
 
 // 獲取藝人熱門曲目
 export async function getArtistsTopTracks(id: string = '5UOj6C1InE5WTmBXNuemt4') {
-  const res = await instance.get(`${API_ARTISTS}/${id}/top-tracks`)
+  const res = await accessInstance.get(`${API_ARTISTS}/${id}/top-tracks`)
   console.log(res.data)
 
   return res.data
