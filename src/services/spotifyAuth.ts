@@ -11,6 +11,8 @@ export class SpotifyAuth {
     'app-remote-control',
     'streaming',
     'playlist-read-collaborative',
+    'user-library-read',
+    'user-read-private',
   ]
 
   // 生成隨機 state 參數用於安全驗證

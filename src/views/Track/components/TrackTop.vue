@@ -36,7 +36,7 @@ onMounted(async () => {
       <div class="flex flex-col gap-4">
         <div>
           <div>歌曲</div>
-          <h3 class="text-2xl md:text-3xl lg:text-4xl">{{ trackName }}</h3>
+          <h3 class="text-xl md:text-2xl lg:text-3xl">{{ trackName }}</h3>
         </div>
         <div class="flex flex-wrap items-end gap-2">
           <a-avatar>artist</a-avatar>
