@@ -5,7 +5,7 @@ import { useRoute } from 'vue-router'
 import AritistHeader from './components/AritistHeader.vue'
 import AritistSub from './components/AritistSub.vue'
 import AritistPopularCard from './components/AritistPopularCard.vue'
-import ChildPageFooter from '@/layouts/childPageFooter.vue'
+import ChildPageFooter from '@/layouts/ChildPageFooter.vue'
 // Api
 import { getArtists, getArtistsTopTracks } from '@/api/AritistApi'
 // type

@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import { msToMinSec } from '@/utils/msToMinSec'
 import type { SpotifyTrack } from '@/types/track'
-
 const props = defineProps<{
   list: SpotifyTrack
 }>()
