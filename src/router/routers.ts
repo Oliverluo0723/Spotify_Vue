@@ -8,7 +8,8 @@ import Home from '@/layouts/Home.vue'
 import LoginPage from '@/views/LoginPage.vue'
 import CallbackPage from '@/views/CallbackPage.vue'
 import AritistSection from '@/views/Artist/AritistSection.vue'
-import TrackPage from '@/views/Collection/Track/TrackPage.vue'
+import CollectionTrackPage from '@/views/Collection/Track/TrackPage.vue'
+import TrackPage from '@/views/Track/TrackPage.vue'
 
 const router = createRouter({
   // vite.config.ts 中的環境變量 import.meta.env.BASE_URL
@@ -39,10 +40,15 @@ const router = createRouter({
           meta: { requiresAuth: true },
         },
         {
-          path: 'track',
-          name: 'track',
-          component: TrackPage,
+          path: 'tracks',
+          name: 'CollectionTrackPage',
+          component: CollectionTrackPage,
           meta: { requiresAuth: true },
+        },
+        {
+          path: '/track/:id',
+          name: 'TrackPage',
+          component: TrackPage,
         },
       ],
     },
@@ -50,17 +56,17 @@ const router = createRouter({
 })
 
 // 路由守衛
-// router.beforeEach((to, from, next) => {
-//   const requiresAuth = to.meta.requiresAuth
-//   const isAuthenticated = SpotifyAuth.isAuthenticated()
+router.beforeEach((to, from, next) => {
+  const requiresAuth = to.meta.requiresAuth
+  const isAuthenticated = SpotifyAuth.isAuthenticated()
 
-//   if (requiresAuth && !isAuthenticated) {
-//     next('/login')
-//   } else if (to.path === '/login' && isAuthenticated) {
-//     next('/home')
-//   } else {
-//     next()
-//   }
-// })
+  if (requiresAuth && !isAuthenticated) {
+    next('/login')
+  } else if (to.path === '/login' && isAuthenticated) {
+    next('/home')
+  } else {
+    next()
+  }
+})
 
 export default router

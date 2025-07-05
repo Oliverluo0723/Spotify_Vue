@@ -3,7 +3,7 @@ import { HeartFilled } from '@ant-design/icons-vue'
 </script>
 <template>
   <div v-hover class="mt-4 lg:mt-0 w-full h-[40px]">
-    <RouterLink to="/home/track">
+    <RouterLink to="/home/tracks">
       <a-flex align="center" gap="12">
         <a-avatar shape="square" style="background-color: #93c5fd">
           <template #icon><HeartFilled /></template>

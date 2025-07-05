@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ref } from 'vue'
 import { msToMinSec } from '@/utils/msToMinSec'
 import type { SpotifyTrack } from '@/types/track'
 const props = defineProps<{
@@ -7,21 +6,24 @@ const props = defineProps<{
 }>()
 
 const { name, duration_ms, album } = props.list
+const id = props.list.id
 </script>
 <template>
-  <div v-hover class="poupler-card flex justify-between items-center">
-    <div class="flex items-center gap-4 w-[550px]">
-      <span>1</span>
-      <img :src="album.images[2].url" alt="專輯" class="albumImg" />
-      <div class="w-[400px]">{{ name }}</div>
-    </div>
-    <div class="w-[100px] hidden lg:block">5000</div>
-    <div class="w-[70px] sm:w-fit">
-      <!-- <img class="addedCheckMark" :src="addedCheckMark" alt="" /> -->
-    </div>
+  <router-link :to="`/track/${id}`">
+    <div v-hover class="poupler-card flex justify-between items-center">
+      <div class="flex items-center gap-4 w-[550px]">
+        <span>1</span>
+        <img :src="album.images[2].url" alt="專輯" class="albumImg" />
+        <div class="w-[400px]">{{ name }}</div>
+      </div>
+      <div class="w-[100px] hidden lg:block">5000</div>
+      <div class="w-[70px] sm:w-fit">
+        <!-- <img class="addedCheckMark" :src="addedCheckMark" alt="" /> -->
+      </div>
 
-    <div class="w-[100px] hidden lg:block">{{ msToMinSec(Number(duration_ms)) }}</div>
-  </div>
+      <div class="w-[100px] hidden lg:block">{{ msToMinSec(Number(duration_ms)) }}</div>
+    </div>
+  </router-link>
 </template>
 <style lang="scss" scoped>
 .poupler-card {
