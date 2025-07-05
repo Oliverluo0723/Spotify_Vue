@@ -28,37 +28,43 @@ onMounted(async () => {
 })
 </script>
 <template>
-  <section>
-    <div class="track-top p-4">
-      <a-flex align="center" gap="middle">
+  <div class="track-top">
+    <a-flex align="center" gap="middle" wrap>
+      <div class="trackImg-wrap">
+        <img :src="trackImgUrl" alt="" class="w-full h-full object-cover" />
+      </div>
+      <div class="flex flex-col gap-4">
         <div>
-          <img :src="trackImgUrl" alt="" />
+          <div>歌曲</div>
+          <h3 class="text-3xl">{{ trackName }}</h3>
         </div>
-        <div class="flex flex-col gap-4">
-          <div>
-            <div>歌曲</div>
-            <h3 class="text-3xl">{{ trackName }}</h3>
-          </div>
-          <div class="flex items-end gap-2">
-            <a-avatar>artist</a-avatar>
-            <router-link :to="`/home`">
-              <p>{{ trackData?.artists[0].name }}</p>
-            </router-link>
-            <p>{{ trackData?.album.name }}</p>
-            <div class="flex items-center gap-2 text-[0.8rem] text-gray-400">
-              <p>{{ trackData?.album.release_date }}</p>
-              <p>{{ msToMinSec(trackData?.duration_ms ?? 0) }}</p>
-              <p>724663</p>
-            </div>
+        <div class="flex flex-wrap items-end gap-2">
+          <a-avatar>artist</a-avatar>
+          <router-link :to="`/home/aritist/${trackData?.artists[0].id}`">
+            <p>{{ trackData?.artists[0].name }}</p>
+          </router-link>
+          <p>{{ trackData?.album.name }}</p>
+          <div class="flex flex-wrap items-center gap-2 text-[0.8rem] text-gray-400">
+            <p>{{ trackData?.album.release_date }}</p>
+            <p>{{ msToMinSec(trackData?.duration_ms ?? 0) }}</p>
+            <p>724663</p>
           </div>
         </div>
-      </a-flex>
-    </div>
-  </section>
+      </div>
+    </a-flex>
+  </div>
 </template>
 <style lang="scss" scoped>
 .track-top {
   width: 100%;
-  height: clamp(200px, 40vw, 330px);
+  height: clamp(280px, 40vw, 330px);
+}
+
+.trackImg-wrap {
+  width: clamp(200px, 40vw, 300px);
+  height: clamp(200px, 40vw, 300px);
+  min-width: 200px;
+  min-height: 200px;
+  overflow: hidden;
 }
 </style>
