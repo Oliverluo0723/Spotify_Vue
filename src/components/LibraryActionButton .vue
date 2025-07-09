@@ -8,6 +8,9 @@ import { useRoute } from 'vue-router'
 const route = useRoute()
 const id = Array.isArray(route.params.id) ? route.params.id[0] : (route.params.id ?? '')
 
+const isAdd = ref<boolean>(false)
+
+//
 async function handleGetCheckUsersSavedTracks(): Promise<boolean | undefined> {
   if (!id) return false
   const res = await getCheckUsersSavedTracks(id)
@@ -17,19 +20,20 @@ async function handleGetCheckUsersSavedTracks(): Promise<boolean | undefined> {
   return undefined
 }
 
-const isAdd = ref<boolean>(false)
-
 onMounted(async () => {
   const res = await handleGetCheckUsersSavedTracks()
   isAdd.value = res ?? false
 })
+//
 
+//
 const [messageApi, contextHolder] = message.useMessage()
 
 function ChangeIsAdd() {
   isAdd.value = !isAdd.value
   messageApi.info(isAdd.value ? '新增成功' : '刪除成功')
 }
+//
 
 const tooltipTitle = computed(() => {
   return isAdd.value ? '從你的音樂庫中刪除' : '從你的音樂庫中新增'

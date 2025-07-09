@@ -1,8 +1,8 @@
 import { accessInstance } from '@/api/config'
-import axios from 'axios'
+import type { SpotifyTrack } from '@/types/track'
 
 // 獲取單首歌的資料
-export async function getTrack(id: string) {
+export async function getTrack(id: string): Promise<SpotifyTrack | null> {
   try {
     const res = await accessInstance.get(`/tracks/${id}`)
 

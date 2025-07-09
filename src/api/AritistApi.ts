@@ -13,9 +13,7 @@ export async function getArtists(id: string = '5UOj6C1InE5WTmBXNuemt4'): Promise
 }
 
 // 獲取多個藝人 最多50筆
-export async function getSeveralArtists(
-  ids: string[] = ['5UOj6C1InE5WTmBXNuemt4'],
-): Promise<ArtistProps[]> {
+export async function getSeveralArtists(ids: string[]): Promise<ArtistProps[]> {
   const res = await accessInstance.get(`${API_ARTISTS}`, {
     params: {
       ids: ids.join(','),
