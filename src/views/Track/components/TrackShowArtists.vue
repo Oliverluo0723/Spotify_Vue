@@ -30,7 +30,7 @@ onMounted(async () => {
   <div class="trackShowArtists">
     <ul class="w-full h-auto">
       <li v-hover class="w-full h-[100px] flex items-center" v-for="item in artists">
-        <RouterLink :to="`/home/aritist/${item.id}`">
+        <RouterLink :to="`/home/aritist/${item.id}`" class="w-full">
           <a-flex align="center" gap="16">
             <div>
               <a-avatar shape="circle" :size="72" :src="item.images[0].url">藝人</a-avatar>

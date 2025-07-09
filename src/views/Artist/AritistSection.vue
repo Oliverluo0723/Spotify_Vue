@@ -7,7 +7,7 @@ import AritistSub from './components/AritistSub.vue'
 import AritistPopularCard from './components/AritistPopularCard.vue'
 import ChildPageFooter from '@/layouts/ChildPageFooter.vue'
 // Api
-import { getArtists, getArtistsTopTracks } from '@/api/AritistApi'
+import { getArtists, getArtistsTopTracks, getArtistsRelatedArtists } from '@/api/AritistApi'
 // type
 import type { ArtistProps } from '@/types/aritist'
 import type { SpotifyTrack } from '@/types/track'
@@ -16,6 +16,7 @@ const route = useRoute()
 
 const Artist = ref<ArtistProps | null>(null)
 const ArtistToptrack = ref<SpotifyTrack[] | null>(null)
+const RelatedArtists = ref<ArtistProps[] | null>(null)
 
 watch(
   () => route.params.id,
@@ -23,6 +24,7 @@ watch(
     if (typeof newId === 'string') {
       fetchArtist(newId)
       fetchArtistTopTrack(newId)
+      // fetchGetArtistsRelatedArtists(newId)
     }
   },
   { immediate: true },
@@ -34,6 +36,10 @@ async function fetchArtist(id: string): Promise<void> {
 
 async function fetchArtistTopTrack(id: string): Promise<void> {
   ArtistToptrack.value = await getArtistsTopTracks(id)
+}
+
+async function fetchGetArtistsRelatedArtists(id: string): Promise<void> {
+  RelatedArtists.value = await getArtistsRelatedArtists(id)
 }
 
 // 檢視更多

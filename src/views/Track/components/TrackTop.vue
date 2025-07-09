@@ -30,9 +30,11 @@ onMounted(async () => {
 <template>
   <div class="track-top">
     <a-flex align="center" gap="middle" wrap>
+      <!-- 左 -->
       <div class="trackImg-wrap">
         <img :src="trackImgUrl" alt="" class="w-full h-full object-cover" />
       </div>
+      <!-- 右 -->
       <div class="flex flex-col gap-4">
         <div>
           <div>歌曲</div>
@@ -61,10 +63,10 @@ onMounted(async () => {
 }
 
 .trackImg-wrap {
-  width: clamp(200px, 40vw, 300px);
-  height: clamp(200px, 40vw, 300px);
-  min-width: 200px;
-  min-height: 200px;
+  width: clamp(250px, 40vw, 300px);
+  height: clamp(250px, 40vw, 300px);
+  min-width: 250px;
+  min-height: 250px;
   overflow: hidden;
 }
 </style>

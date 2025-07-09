@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { h, ref, onMounted, computed } from 'vue'
+import { h, ref, onMounted, computed, watch } from 'vue'
 import { useUserStore } from '@/stores/userStore'
 import { storeToRefs } from 'pinia'
+import { SearchForItem } from '@/api/SearchApi'
 // icon
 import {
   SearchOutlined,
@@ -9,11 +10,20 @@ import {
   CustomerServiceOutlined,
   BellOutlined,
   TeamOutlined,
-  UserOutlined,
 } from '@ant-design/icons-vue'
 import Spotify from '@/assets/spotify-1.svg'
 
 const SpotifyIcon = Spotify
+const iptValue = ref<string>('')
+
+console.log(iptValue.value)
+watch(
+  iptValue,
+  (newIpt) => {
+    console.log(newIpt)
+  },
+  { immediate: true },
+)
 
 const menuItems = ref([
   { id: 101, menuItem: '帳戶', Url: '' },
@@ -31,8 +41,20 @@ const userImg = computed(() => {
   return profile.value?.images?.[1]?.url || profile.value?.images?.[0]?.url || ''
 })
 
-onMounted(() => {
+async function testSearch() {
+  const result = await SearchForItem({
+    q: 'Twice',
+    type: ['artist'],
+    market: 'TW',
+    limit: 10,
+  })
+
+  console.log(result)
+}
+
+onMounted(async () => {
   userStore.fetchProfile()
+  // await testSearch()
 })
 </script>
 <template>
@@ -46,6 +68,7 @@ onMounted(() => {
         <a-button type="primary" shape="circle" :icon="h(HomeFilled)"></a-button>
       </a-tooltip>
       <a-input
+        v-model:value="iptValue"
         style="width: clamp(10rem, 35vw, 20rem)"
         placeholder="想聽什麼呢"
         :suffix="h(CustomerServiceOutlined)"
