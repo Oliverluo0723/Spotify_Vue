@@ -36,11 +36,7 @@ const router = createRouter({
       children: [
         {
           path: '',
-          redirect: { name: 'main' }, // 這行讓 /home 預設顯示 main
-        },
-        {
-          path: 'main',
-          name: 'main',
+          name: 'main', // 直接給空路徑 child 使用
           component: Main,
           meta: { requiresAuth: true },
         },

@@ -12,10 +12,10 @@ const artists = ref<ArtistProps[] | []>([])
 async function handleGetFollowedArtists(limit: number): Promise<ArtistProps[]> {
   try {
     const res = await getFollowedArtists(limit)
-    return res ?? [] // 確保總是有明確回傳值
+    return res ?? []
   } catch (err) {
     console.error('獲取關注的藝人失敗', err)
-    return [] // 保持回傳型別一致
+    return []
   }
 }
 

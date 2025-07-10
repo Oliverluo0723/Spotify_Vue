@@ -16,14 +16,7 @@ import Spotify from '@/assets/spotify-1.svg'
 const SpotifyIcon = Spotify
 const iptValue = ref<string>('')
 
-console.log(iptValue.value)
-watch(
-  iptValue,
-  (newIpt) => {
-    console.log(newIpt)
-  },
-  { immediate: true },
-)
+watch(iptValue, (newIpt) => {}, { immediate: true })
 
 const menuItems = ref([
   { id: 101, menuItem: '帳戶', Url: '' },
@@ -48,8 +41,6 @@ async function testSearch() {
     market: 'TW',
     limit: 10,
   })
-
-  console.log(result)
 }
 
 onMounted(async () => {
@@ -65,7 +56,7 @@ onMounted(async () => {
     <div class="center">
       <a-tooltip>
         <template #title>首頁</template>
-        <RouterLink to="/home/main">
+        <RouterLink to="/home">
           <a-button type="primary" shape="circle" :icon="h(HomeFilled)" />
         </RouterLink>
       </a-tooltip>
