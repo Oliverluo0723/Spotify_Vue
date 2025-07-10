@@ -14,6 +14,7 @@ export class SpotifyAuth {
     'user-library-read',
     'user-read-private',
     'user-read-playback-state',
+    'user-modify-playback-state',
   ]
 
   // 生成隨機 state 參數用於安全驗證

@@ -23,11 +23,11 @@ onMounted(async () => {
   const followedArtists = await handleGetFollowedArtists(8)
   artists.value = followedArtists
 
-  if (followedArtists.length === 0) {
-    console.log('用戶尚未關注任何藝人')
-  } else {
-    console.log('顯示已關注的藝人列表', artists.value)
-  }
+  // if (followedArtists.length === 0) {
+  //   console.log('用戶尚未關注任何藝人')
+  // } else {
+  //   console.log('顯示已關注的藝人列表', artists.value)
+  // }
 })
 </script>
 <template>

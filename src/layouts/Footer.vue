@@ -1,30 +1,22 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import {
   StepBackwardOutlined,
   StepForwardOutlined,
-  PlayCircleFilled,
   RetweetOutlined,
   SwapOutlined,
-  PauseCircleFilled,
   ApiFilled,
 } from '@ant-design/icons-vue'
+import PlayButton from '@/components/PlayButton.vue'
+import { getPlaybackState } from '@/api/Player'
 
 const iconStyle = ref({
   fontSize: '1.35rem',
 })
 
-const playTrack = ref(false)
-
-function handlePlay() {
-  playTrack.value = true
-  // 這裡呼叫 Spotify SDK 的播放方法
-}
-
-function handlePause() {
-  playTrack.value = false
-  // 這裡呼叫 Spotify SDK 的暫停方法
-}
+onMounted(async () => {
+  const res = await getPlaybackState()
+})
 </script>
 <template>
   <footer>
@@ -47,22 +39,7 @@ function handlePause() {
                 <StepBackwardOutlined :style="iconStyle" class="isHover" />
               </a-tooltip>
               <!--  -->
-              <a-tooltip>
-                <template #title>播放</template>
-                <div></div>
-                <PlayCircleFilled
-                  style="font-size: 1.8rem"
-                  class="isHover"
-                  @click="handlePause"
-                  v-if="playTrack"
-                />
-                <PauseCircleFilled
-                  v-else
-                  style="font-size: 1.8rem"
-                  class="isHover"
-                  @click="handlePlay"
-                />
-              </a-tooltip>
+              <PlayButton />
               <!--  -->
               <a-tooltip>
                 <template #title>下一步</template>
