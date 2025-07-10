@@ -65,7 +65,9 @@ onMounted(async () => {
     <div class="center">
       <a-tooltip>
         <template #title>首頁</template>
-        <a-button type="primary" shape="circle" :icon="h(HomeFilled)"></a-button>
+        <RouterLink to="/home/main">
+          <a-button type="primary" shape="circle" :icon="h(HomeFilled)" />
+        </RouterLink>
       </a-tooltip>
       <a-input
         v-model:value="iptValue"

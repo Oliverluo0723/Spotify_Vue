@@ -11,9 +11,9 @@ export async function getCurrentUserProfile() {
 }
 
 // 獲取使用者關注的藝術家
-export async function getFollowedArtists() {
+export async function getFollowedArtists(limit: number = 20) {
   try {
-    const res = await accessInstance.get('/me/following?type=artist&limit=20')
+    const res = await accessInstance.get(`/me/following?type=artist&limit=${limit}`)
     // console.log('關注資料', res.data.artists.items)
     return res.data.artists.items
   } catch (err) {

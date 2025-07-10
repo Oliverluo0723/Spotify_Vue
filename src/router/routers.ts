@@ -10,6 +10,7 @@ import CallbackPage from '@/views/CallbackPage.vue'
 import AritistSection from '@/views/Artist/AritistSection.vue'
 import CollectionTrackPage from '@/views/Collection/Track/TrackPage.vue'
 import TrackPage from '@/views/Track/TrackPage.vue'
+import Main from '@/views/Main/Main.vue'
 
 const router = createRouter({
   // vite.config.ts 中的環境變量 import.meta.env.BASE_URL
@@ -33,6 +34,16 @@ const router = createRouter({
       component: Home,
       meta: { requiresAuth: true },
       children: [
+        {
+          path: '',
+          redirect: { name: 'main' }, // 這行讓 /home 預設顯示 main
+        },
+        {
+          path: 'main',
+          name: 'main',
+          component: Main,
+          meta: { requiresAuth: true },
+        },
         {
           path: 'aritist/:id',
           name: 'aritist',
