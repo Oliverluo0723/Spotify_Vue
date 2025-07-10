@@ -8,21 +8,47 @@ import {
   ApiFilled,
 } from '@ant-design/icons-vue'
 import PlayButton from '@/components/PlayButton.vue'
-import { getPlaybackState } from '@/api/Player'
+// api
+import { getCurrentlyPlayingTrack } from '@/api/Player'
+
+const currentTrackImg = ref<string>('')
+const currentTrackName = ref<string>('')
+const currentTrackArtists = ref<string[]>([])
 
 const iconStyle = ref({
   fontSize: '1.35rem',
 })
 
 onMounted(async () => {
-  const res = await getPlaybackState()
+  const currentTrack = await getCurrentlyPlayingTrack()
+  currentTrackImg.value = currentTrack.item.album.images[2].url
+  currentTrackName.value = currentTrack.item.name
+  currentTrackArtists.value = currentTrack.item.artists
+  console.log(currentTrackArtists.value)
 })
 </script>
 <template>
   <footer>
-    <a-row>
+    <a-row class="w-full h-full">
       <a-col :span="6">
-        <div></div>
+        <a-flex gap="16">
+          <div class="h-[50px] aspect-square">
+            <img :src="currentTrackImg" alt="img" />
+          </div>
+          <div>
+            <div>{{ currentTrackName }}</div>
+            <div>
+              <span
+                v-for="(item, index) in currentTrackArtists"
+                class="text-gray-400"
+                :class="{ 'ml-2': index !== 0 }"
+                :key="item.id"
+              >
+                {{ item.name }}
+              </span>
+            </div>
+          </div>
+        </a-flex>
       </a-col>
       <!-- 中間 -->
       <a-col :span="12">
@@ -78,6 +104,7 @@ footer {
   position: fixed;
   top: 100%;
   left: 0;
+  padding: 0.5rem;
   transform: translate(0, -100%);
   width: 100%;
   height: 72px;

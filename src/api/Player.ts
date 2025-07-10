@@ -48,3 +48,15 @@ export async function pausePlayback(): Promise<void> {
     console.error(err)
   }
 }
+
+export async function getCurrentlyPlayingTrack() {
+  try {
+    const res = await accessInstance.get(
+      '/me/player/currently-playing?market=TW&additional_types=track',
+    )
+
+    return res.data
+  } catch (err) {
+    console.error(err)
+  }
+}
