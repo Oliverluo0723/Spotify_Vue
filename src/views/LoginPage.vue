@@ -31,7 +31,7 @@ function loginWithSpotify(): void {
           </g>
         </g>
       </svg>
-      Continue with Spotify
+      使用Spotify登錄
     </button>
   </div>
 </template>
@@ -42,6 +42,7 @@ function loginWithSpotify(): void {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #3c3c3c;
 }
 
 .button {

@@ -36,6 +36,5 @@ const data = ref<ThemeConfig>(defaultData)
   position: relative;
   width: 100dvw;
   min-height: 100svh;
-  padding: 0 8px;
 }
 </style>

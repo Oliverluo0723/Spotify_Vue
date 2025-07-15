@@ -37,6 +37,7 @@ import LibrarySection from '@/views/LibrarySection/LibrarySection.vue'
 main {
   width: 100%;
   height: 100%;
+  padding: 0 8px;
 }
 
 .col-content {

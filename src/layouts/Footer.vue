@@ -104,7 +104,7 @@ footer {
   position: fixed;
   top: 100%;
   left: 0;
-  padding: 0.5rem;
+  padding: 0 8px;
   transform: translate(0, -100%);
   width: 100%;
   height: 72px;
