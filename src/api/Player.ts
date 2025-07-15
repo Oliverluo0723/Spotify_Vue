@@ -1,5 +1,6 @@
 import { accessInstance } from '@/api/config'
 import type { PlaybackState } from '@/types/player'
+import type {} from '@/types/track'
 
 // 獲取播放狀態
 export async function getPlaybackState(): Promise<PlaybackState | undefined> {
@@ -41,6 +42,7 @@ export async function startResumePlayback() {
   }
 }
 
+// 暫停播放
 export async function pausePlayback(): Promise<void> {
   try {
     await accessInstance.put('/me/player/pause')
@@ -49,6 +51,7 @@ export async function pausePlayback(): Promise<void> {
   }
 }
 
+// 獲取目前播放
 export async function getCurrentlyPlayingTrack() {
   try {
     const res = await accessInstance.get(
@@ -58,5 +61,16 @@ export async function getCurrentlyPlayingTrack() {
     return res.data
   } catch (err) {
     console.error(err)
+  }
+}
+
+// 獲取最近播放歌曲
+export async function getRecentlyPlayedTracks() {
+  try {
+    const res = await accessInstance.get('/me/player/recently-played?limit=10')
+
+    return res.data
+  } catch (err) {
+    console.error('獲取最近播放歌曲失敗', err)
   }
 }

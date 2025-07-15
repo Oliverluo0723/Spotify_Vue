@@ -11,8 +11,8 @@ import PlayButton from '@/components/PlayButton.vue'
 // api
 import { getCurrentlyPlayingTrack } from '@/api/Player'
 
-const currentTrackImg = ref<string>('')
-const currentTrackName = ref<string>('')
+const currentTrackImg = ref<string | null>(null)
+const currentTrackName = ref<string | null>(null)
 const currentTrackArtists = ref<string[]>([])
 
 const iconStyle = ref({
@@ -21,10 +21,15 @@ const iconStyle = ref({
 
 onMounted(async () => {
   const currentTrack = await getCurrentlyPlayingTrack()
-  currentTrackImg.value = currentTrack.item.album.images[2].url
-  currentTrackName.value = currentTrack.item.name
-  currentTrackArtists.value = currentTrack.item.artists
-  console.log(currentTrackArtists.value)
+
+  if (currentTrack) {
+    currentTrackImg.value = currentTrack.item.album.images[2].url
+    currentTrackName.value = currentTrack.item.name
+    currentTrackArtists.value = currentTrack.item.artists
+    console.log(currentTrackArtists.value)
+  } else {
+    console.log('目前沒在播')
+  }
 })
 </script>
 <template>
@@ -32,7 +37,7 @@ onMounted(async () => {
     <a-row class="w-full h-full">
       <a-col :span="6">
         <a-flex gap="16">
-          <div class="h-[50px] aspect-square">
+          <div class="h-[50px] aspect-square" v-if="currentTrackImg">
             <img :src="currentTrackImg" alt="img" />
           </div>
           <div>
