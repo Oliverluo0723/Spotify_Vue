@@ -1,15 +1,16 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import ArtistsCard from '@/components/ArtistsCard.vue'
-// import { getRecentlyPlayedTracks } from '@/api/Player'
+import { getRecentlyPlayedTracks } from '@/api/Player'
 
-// const recent = ref(null)
+const recent = ref(null)
+const aritstsList = ref([])
 
-// onMounted(async () => {
-//   const res = await getRecentlyPlayedTracks()
-//   recent.value = res
-//   console.log(recent.value)
-// })
+onMounted(async () => {
+  const res = await getRecentlyPlayedTracks()
+  recent.value = res
+  aritstsList.value = recent.value.items
+})
 </script>
 <template>
   <section>
@@ -22,7 +23,13 @@ import ArtistsCard from '@/components/ArtistsCard.vue'
       </router-link>
     </div>
     <div class="w-full mt-2">
-      <ArtistsCard />
+      <PerfectScrollbar>
+        <ul class="flex">
+          <li v-for="(item, index) in aritstsList">
+            <ArtistsCard :artist="item" />
+          </li>
+        </ul>
+      </PerfectScrollbar>
     </div>
   </section>
 </template>
@@ -30,5 +37,10 @@ import ArtistsCard from '@/components/ArtistsCard.vue'
 section {
   width: 100%;
   height: auto;
+}
+
+.ps {
+  width: 100%;
+  padding: 1rem 0;
 }
 </style>
