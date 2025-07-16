@@ -5,14 +5,15 @@ import imgUrl from '@/assets/culenasm.jpg'
 interface Props {
   img: string
   name: string
+  shape?: 'circle' | 'square'
 }
 
-const { img, name } = defineProps<Props>()
+const { img, name, shape } = defineProps<Props>()
 </script>
 <template>
-  <div class="card">
+  <div v-hover class="card">
     <div class="w-full flex justify-center">
-      <a-avatar shape="circle" :size="156" :src="img">藝人</a-avatar>
+      <a-avatar :shape="shape ?? 'circle'" :size="156" :src="img">藝人</a-avatar>
     </div>
     <div class="w-full mt-3">
       <div class="w-full h-[40px] text-[0.9rem]">{{ name }}</div>
@@ -22,12 +23,8 @@ const { img, name } = defineProps<Props>()
 </template>
 <style lang="scss" scoped>
 .card {
-  width: clamp(170px, 40vw, 210px);
+  width: clamp(160px, 22vw, 180px);
   height: clamp(200px, 40vw, 250px);
   padding: 0.25rem 0.5rem;
-}
-
-.card:hover {
-  background-color: #dddddd;
 }
 </style>

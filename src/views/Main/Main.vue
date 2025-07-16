@@ -80,7 +80,7 @@ onMounted(async () => {
       <TopArtistsGrid />
       <!-- 最近播放 -->
       <ContentSection :list="recentlyList" />
-      <ContentSection :list="userTopList"> 你最喜愛的藝人 </ContentSection>
+      <ContentSection :list="userTopList" shape="circle"> 你最喜愛的藝人 </ContentSection>
       <!--  -->
     </a-space>
   </section>

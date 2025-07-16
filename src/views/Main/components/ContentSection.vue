@@ -9,6 +9,7 @@ interface Prop {
 
 const props = defineProps<{
   list: Prop[]
+  shape?: 'circle' | 'square'
 }>()
 </script>
 <template>
@@ -27,7 +28,7 @@ const props = defineProps<{
       <PerfectScrollbar>
         <ul class="flex">
           <li v-for="(item, index) in props.list" :key="index">
-            <Card :img="item.img" :name="item.name" />
+            <Card :img="item.img" :name="item.name" :shape="props.shape" />
           </li>
         </ul>
       </PerfectScrollbar>
