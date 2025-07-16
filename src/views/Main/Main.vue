@@ -8,6 +8,7 @@ import ContentSection from '@/views/Main/components/ContentSection.vue'
 // Api
 import { getRecentlyPlayedTracks } from '@/api/Player'
 import { getUserTop } from '@/api/UserApi'
+import { getAlbum } from '@/api/AlbumApi'
 
 const size = ref<number>(36)
 
@@ -53,7 +54,6 @@ async function handleUserTopList() {
     const response = await getUserTop()
 
     if (!response) {
-      console.log('沒有')
       return
     }
 

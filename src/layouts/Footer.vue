@@ -36,7 +36,7 @@ onMounted(async () => {
   <footer>
     <a-row class="w-full h-full">
       <a-col :span="6">
-        <a-flex gap="16">
+        <a-flex class="w-full h-full" gap="16" align="center">
           <div class="h-[50px] aspect-square" v-if="currentTrackImg">
             <img :src="currentTrackImg" alt="img" />
           </div>
