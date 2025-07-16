@@ -7,23 +7,15 @@ interface Props {
   name: string
 }
 
-const props = defineProps<Props>()
-
-const trackImg = ref<string>(imgUrl)
-const trackName = ref<string>('歌曲名')
-
-onMounted(() => {
-  trackImg.value = props.img
-  trackName.value = props.name
-})
+const { img, name } = defineProps<Props>()
 </script>
 <template>
   <div class="card">
     <div class="w-full flex justify-center">
-      <a-avatar shape="circle" :size="156" :src="trackImg">藝人</a-avatar>
+      <a-avatar shape="circle" :size="156" :src="img">藝人</a-avatar>
     </div>
     <div class="w-full mt-3">
-      <div class="w-full h-[40px] text-[0.9rem]">{{ trackName }}</div>
+      <div class="w-full h-[40px] text-[0.9rem]">{{ name }}</div>
       <div>單曲</div>
     </div>
   </div>

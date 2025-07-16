@@ -2,13 +2,14 @@
 import { ref, onMounted } from 'vue'
 import Card from '@/components/ArtistsCard.vue'
 
+interface Prop {
+  img: string
+  name: string
+}
+
 const props = defineProps<{
-  list: any[] | null
+  list: Prop[]
 }>()
-
-console.log(props.list)
-
-const list = ref<any[] | null>(props.list)
 </script>
 <template>
   <section>
@@ -25,8 +26,8 @@ const list = ref<any[] | null>(props.list)
     <div class="w-full mt-2">
       <PerfectScrollbar>
         <ul class="flex">
-          <li v-for="(item, index) in list" :key="index">
-            <Card :img="item.track.album.images[2].url" :name="item.track.name" />
+          <li v-for="(item, index) in props.list" :key="index">
+            <Card :img="item.img" :name="item.name" />
           </li>
         </ul>
       </PerfectScrollbar>
