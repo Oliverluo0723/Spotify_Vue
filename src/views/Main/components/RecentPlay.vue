@@ -3,13 +3,25 @@ import { ref, onMounted } from 'vue'
 import ArtistsCard from '@/components/ArtistsCard.vue'
 import { getRecentlyPlayedTracks } from '@/api/Player'
 
-const recent = ref(null)
-const aritstsList = ref([])
+const recentlyList = ref<null | []>(null)
+
+async function handleGetRecentlyPlayedTracks() {
+  try {
+    const res = await getRecentlyPlayedTracks()
+
+    if (res) {
+      recentlyList.value = res.items
+      console.log(recentlyList.value)
+    } else {
+      console.log('沒有')
+    }
+  } catch (err) {
+    console.error(err)
+  }
+}
 
 onMounted(async () => {
-  const res = await getRecentlyPlayedTracks()
-  recent.value = res
-  aritstsList.value = recent.value.items
+  await handleGetRecentlyPlayedTracks()
 })
 </script>
 <template>
@@ -25,8 +37,8 @@ onMounted(async () => {
     <div class="w-full mt-2">
       <PerfectScrollbar>
         <ul class="flex">
-          <li v-for="(item, index) in aritstsList">
-            <ArtistsCard :artist="item" />
+          <li v-for="(item, index) in recentlyList" :key="index">
+            <ArtistsCard :img="item.track.album.images[2].url" :name="item.track.name" />
           </li>
         </ul>
       </PerfectScrollbar>

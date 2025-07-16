@@ -1,24 +1,21 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import imgUrl from '@/assets/culenasm.jpg'
 
-const props = defineProps({
-  artist: Object,
-})
-
-const track = ref(props.artist.track)
-const trackImg = ref(null)
-const trackName = ref('')
-
-if (track.value) {
-  trackName.value = track.value.name
-  trackImg.value = track.value.album.images[1].url
-
-  console.log(trackName.value)
-  console.log(trackImg.value)
-} else {
-  console.error('獲取藝人資料失敗')
+interface Props {
+  img: string
+  name: string
 }
+
+const props = defineProps<Props>()
+
+const trackImg = ref<string>(imgUrl)
+const trackName = ref<string>('歌曲名')
+
+onMounted(() => {
+  trackImg.value = props.img
+  trackName.value = props.name
+})
 </script>
 <template>
   <div class="card">
